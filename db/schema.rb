@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_26_193604) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_224427) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_193604) do
   create_table "cases", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "type"
+    t.string "casetype"
     t.string "color"
     t.string "psu"
     t.string "side_panel"
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_193604) do
     t.string "aspect_ratio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
   end
 
   create_table "cpus", force: :cascade do |t|
@@ -158,8 +159,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_193604) do
   create_table "powersupplies", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "type"
-    t.string "efficienty"
+    t.string "powersupplytype"
+    t.string "efficiency"
     t.integer "wattage"
     t.string "modular"
     t.string "color"
