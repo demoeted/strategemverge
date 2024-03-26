@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 9.99
+  tracking_method: MyString
+  connection_type: MyString
+  max_dpi: 1
+  hand_orientation: MyString
+  color: MyString
+
+two:
+  name: MyString
+  price: 9.99
+  tracking_method: MyString
+  connection_type: MyString
+  max_dpi: 1
+  hand_orientation: MyString
+  color: MyString

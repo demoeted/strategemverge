@@ -1,0 +1,2 @@
+class ThermalPaste < ApplicationRecord
+end
