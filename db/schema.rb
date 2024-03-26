@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_03_26_191731) do
   create_table "case_fans", force: :cascade do |t|
     t.string "name"
@@ -18,10 +19,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_191731) do
     t.string "color"
     t.integer "rpm"
     t.boolean "pwm"
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_192028) do
+  create_table "cases", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "type"
+    t.string "color"
+    t.string "psu"
+    t.string "side_panel"
+>>>>>>> 15b106b608597c7a2ba7957fc69595131c482021
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "computer_monitors", force: :cascade do |t|
     t.string "name"
     t.decimal "screen_size"
@@ -62,11 +74,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_191731) do
     t.string "connection_type"
     t.integer "max_dpi"
     t.string "hand_orientation"
+=======
+  create_table "keyboards", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "style"
+    t.string "switches"
+    t.string "backlit_color"
+    t.boolean "tenkeyless"
+    t.string "connection_type"
+>>>>>>> 15b106b608597c7a2ba7957fc69595131c482021
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "optical_drives", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -86,19 +109,35 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_191731) do
     t.decimal "configuration"
     t.decimal "wattage"
     t.string "frequency"
+=======
+  create_table "motherboards", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "socket"
+    t.string "form_factor"
+    t.integer "max_memory"
+    t.integer "memory_slots"
+>>>>>>> 15b106b608597c7a2ba7957fc69595131c482021
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "thermal_pastes", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.decimal "amount"
+=======
+  create_table "orderproducts", force: :cascade do |t|
+    t.decimal "price"
+    t.integer "quantity"
+>>>>>>> 15b106b608597c7a2ba7957fc69595131c482021
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "webcams", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -107,6 +146,47 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_191731) do
     t.string "focus_type"
     t.string "os"
     t.decimal "fov"
+=======
+  create_table "orders", force: :cascade do |t|
+    t.date "date_purchased"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "powersupplies", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "type"
+    t.string "efficienty"
+    t.integer "wattage"
+    t.string "modular"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rams", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "speed"
+    t.decimal "price_per_gb"
+    t.string "color"
+    t.decimal "first_word_latency"
+    t.integer "cas_latency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "videocards", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "chipset"
+    t.integer "memory"
+    t.integer "core_clock"
+    t.integer "boost_clock"
+    t.string "color"
+    t.integer "length"
+>>>>>>> 15b106b608597c7a2ba7957fc69595131c482021
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
