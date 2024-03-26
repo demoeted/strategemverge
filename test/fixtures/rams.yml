@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 9.99
+  speed: MyString
+  price_per_gb: 9.99
+  color: MyString
+  first_word_latency: 9.99
+  cas_latency: 1
+
+two:
+  name: MyString
+  price: 9.99
+  speed: MyString
+  price_per_gb: 9.99
+  color: MyString
+  first_word_latency: 9.99
+  cas_latency: 1
