@@ -88,6 +88,7 @@ cpus.each do |c|
   cpu = Cpu.find_or_create_by(
     name:                 c['name'],
     price:                c['price'],
+    core_count:           c['core_count'],
     core_clock:           c['core_clock'],
     boost_clock:          c['boost_clock'],
     integrated_graphics:  c['graphics'],
