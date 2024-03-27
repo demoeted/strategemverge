@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2024_03_26_193604) do
-=======
+
 ActiveRecord::Schema[7.1].define(version: 2024_03_27_135401) do
->>>>>>> b025189a390599af11793a8166a97c3c57562f75
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -152,12 +149,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_135401) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id", null: false
+    t.integer "order_id", null: false
+    t.index ["order_id"], name: "index_orderproducts_on_order_id"
+    t.index ["product_id"], name: "index_orderproducts_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.date "date_purchased"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "powersupplies", force: :cascade do |t|
@@ -228,4 +231,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_135401) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orderproducts", "cases", column: "product_id"
+  add_foreign_key "orderproducts", "orders"
+  add_foreign_key "orderproducts", "powersupplies", column: "product_id"
+  add_foreign_key "orderproducts", "rams", column: "product_id"
+  add_foreign_key "orderproducts", "speakers", column: "product_id"
+  add_foreign_key "orderproducts", "thermal_pastes", column: "product_id"
+  add_foreign_key "orderproducts", "videocards", column: "product_id"
+  add_foreign_key "orderproducts", "webcams", column: "product_id"
+  add_foreign_key "orders", "customers"
 end
