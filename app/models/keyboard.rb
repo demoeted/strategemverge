@@ -1,3 +1,3 @@
 class Keyboard < ApplicationRecord
-    belongs_to :orderproducts
+    belongs_to :orderproduct
 end

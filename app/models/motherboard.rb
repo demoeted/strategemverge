@@ -1,3 +1,3 @@
 class Motherboard < ApplicationRecord
-    belongs_to :orderproducts
+    belongs_to :orderproduct
 end
