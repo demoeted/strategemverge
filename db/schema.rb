@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2024_03_26_193604) do
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_03_27_135401) do
->>>>>>> b025189a390599af11793a8166a97c3c57562f75
+ActiveRecord::Schema[7.1].define(version: 2024_03_27_183633) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -61,6 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_135401) do
     t.string "side_panel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "casetype"
   end
 
   create_table "computer_monitors", force: :cascade do |t|
@@ -84,7 +81,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_135401) do
     t.boolean "smt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "core_count"
   end
 
   create_table "customers", force: :cascade do |t|
