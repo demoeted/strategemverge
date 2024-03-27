@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_27_184050) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_27_185826) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_184050) do
     t.string "aspect_ratio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
   end
 
   create_table "cpus", force: :cascade do |t|
@@ -167,6 +168,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_184050) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "powersupplytype"
+    t.string "efficiency"
   end
 
   create_table "rams", force: :cascade do |t|
