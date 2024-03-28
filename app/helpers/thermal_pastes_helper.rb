@@ -1,0 +1,2 @@
+module ThermalPastesHelper
+end
