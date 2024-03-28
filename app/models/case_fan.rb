@@ -8,10 +8,10 @@ class CaseFan < ApplicationRecord
     validates :size, numericality: { in: 40..200 }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["color", "created_at", "id", "id_value", "name", "price", "pwm", "rpm", "size", "updated_at"]
-      end
+        ["created_at", "id", "id_value", "name", "price", "size", "color", "rpm", "pwm", "updated_at"]
+    end
 
     def self.ransackable_associations(auth_object = nil)
         ["orderproduct"]
-      end
+    end
 end

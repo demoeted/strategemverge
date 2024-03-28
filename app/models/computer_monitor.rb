@@ -7,4 +7,12 @@ class ComputerMonitor < ApplicationRecord
     validates :response_time, numericality: { in: 0.01..15 }
     validates :refresh_rate, numericality: { only_integer: true }
     validates :refresh_rate, numericality: { in: 60..600 }
+
+    def self.ransackable_attributes(auth_object = nil)
+        ["created_at", "id", "id_value", "name", "price", "screen_size", "resolution", "refresh_rate", "response_time", "panel_type", "aspect_ratio", "updated_at"]
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        ["orderproduct"]
+    end
 end

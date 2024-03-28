@@ -5,7 +5,8 @@ ActiveAdmin.register CaseFan do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :size, :color, :rpm, :pwm
+  permit_params :name, :price, :size, :color, :rpm, :pwm
+
   #
   # or
   #
@@ -14,5 +15,5 @@ ActiveAdmin.register CaseFan do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
