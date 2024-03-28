@@ -5,7 +5,7 @@ ActiveAdmin.register ComputerMonitor do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio
+   permit_params :name, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio
   #
   # or
   #

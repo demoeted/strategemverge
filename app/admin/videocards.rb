@@ -5,7 +5,7 @@ ActiveAdmin.register Videocard do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :chipset, :memory, :core_clock, :boost_clock, :color, :length
+   permit_params :name, :price, :chipset, :memory, :core_clock, :boost_clock, :color, :length
   #
   # or
   #

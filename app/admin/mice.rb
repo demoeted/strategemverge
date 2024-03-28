@@ -5,7 +5,7 @@ ActiveAdmin.register Mouse do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :tracking_method, :connection_type, :max_dpi, :hand_orientation, :color
+   permit_params :name, :price, :tracking_method, :connection_type, :max_dpi, :hand_orientation, :color
   #
   # or
   #

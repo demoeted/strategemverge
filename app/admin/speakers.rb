@@ -5,7 +5,7 @@ ActiveAdmin.register Speaker do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :configuration, :wattage, :frequency, :color
+   permit_params :name, :price, :configuration, :wattage, :frequency, :color
   #
   # or
   #

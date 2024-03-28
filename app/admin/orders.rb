@@ -5,7 +5,7 @@ ActiveAdmin.register Order do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :date_purchased
+   permit_params :date_purchased
   #
   # or
   #

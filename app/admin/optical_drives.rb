@@ -5,7 +5,7 @@ ActiveAdmin.register OpticalDrive do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :bd, :dvd, :cd, :bd_write, :dvd_write, :cd_write
+   permit_params :name, :price, :bd, :dvd, :cd, :bd_write, :dvd_write, :cd_write
   #
   # or
   #

@@ -5,7 +5,7 @@ ActiveAdmin.register Powersupply do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :type, :efficienty, :wattage, :modular, :color
+   permit_params :name, :price, :type, :efficienty, :wattage, :modular, :color
   #
   # or
   #

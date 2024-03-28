@@ -5,7 +5,7 @@ ActiveAdmin.register Webcam do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :resolutions, :connection, :focus_type, :os, :fov
+   permit_params :name, :price, :resolutions, :connection, :focus_type, :os, :fov
   #
   # or
   #

@@ -5,7 +5,7 @@ ActiveAdmin.register Keyboard do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :style, :switches, :backlit_color, :tenkeyless, :connection_type, :color
+   permit_params :name, :price, :style, :switches, :backlit_color, :tenkeyless, :connection_type, :color
   #
   # or
   #

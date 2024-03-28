@@ -5,7 +5,7 @@ ActiveAdmin.register Case do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :type, :color, :psu, :side_panel
+   permit_params :name, :price, :type, :color, :psu, :side_panel
   #
   # or
   #

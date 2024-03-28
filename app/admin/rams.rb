@@ -5,7 +5,7 @@ ActiveAdmin.register Ram do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :speed, :price_per_gb, :color, :first_word_latency, :cas_latency
+   permit_params :name, :price, :speed, :price_per_gb, :color, :first_word_latency, :cas_latency
   #
   # or
   #

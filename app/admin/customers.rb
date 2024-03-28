@@ -5,7 +5,7 @@ ActiveAdmin.register Customer do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :first_name, :last_name, :email, :phone_number, :address
+   permit_params :first_name, :last_name, :email, :phone_number, :address
   #
   # or
   #
