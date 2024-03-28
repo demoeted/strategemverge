@@ -76,5 +76,4 @@ gem 'stripe'
 gem 'pry'
 gem 'pry-remote'
 gem 'pry-nav'
-
-
+gem 'activeadmin_quill_editor'

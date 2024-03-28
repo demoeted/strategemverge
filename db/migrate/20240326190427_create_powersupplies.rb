@@ -3,11 +3,11 @@ class CreatePowersupplies < ActiveRecord::Migration[7.1]
     create_table :powersupplies do |t|
       t.string :name
       t.decimal :price
-      t.string :type
-      t.string :efficienty
+      t.string :efficiency
       t.integer :wattage
       t.string :modular
       t.string :color
+      t.string :powersupplytype
 
       t.timestamps
     end
