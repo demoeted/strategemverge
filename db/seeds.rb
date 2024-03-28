@@ -1,4 +1,3 @@
-AdminUser.destroy_all
 CaseFan.destroy_all
 Case.destroy_all
 ComputerMonitor.destroy_all
@@ -226,8 +225,6 @@ webcams.each do |c|
     fov:                  c['fov']
   )
 end
-
-
 
 
 

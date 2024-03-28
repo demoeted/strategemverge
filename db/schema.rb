@@ -58,13 +58,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_191054) do
   create_table "cases", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "type"
+    t.string "casetype"
     t.string "color"
     t.string "psu"
     t.string "side_panel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "casetype"
   end
 
   create_table "computer_monitors", force: :cascade do |t|
@@ -174,15 +173,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_27_191054) do
   create_table "powersupplies", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "type"
-    t.string "efficienty"
+    t.string "powersupplytype"
+    t.string "efficiency"
     t.integer "wattage"
     t.string "modular"
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "powersupplytype"
-    t.string "efficiency"
   end
 
   create_table "rams", force: :cascade do |t|

@@ -6,6 +6,7 @@ ActiveAdmin.register Case do
   # Uncomment all parameters which should be permitted for assignment
   #
    permit_params :name, :price, :type, :color, :psu, :side_panel
+
   #
   # or
   #
@@ -14,5 +15,5 @@ ActiveAdmin.register Case do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

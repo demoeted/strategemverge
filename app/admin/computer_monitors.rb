@@ -6,13 +6,14 @@ ActiveAdmin.register ComputerMonitor do
   # Uncomment all parameters which should be permitted for assignment
   #
    permit_params :name, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio
+
   #
   # or
   #
   # permit_params do
-  #   permitted = [:name, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio]
+  #   permitted = [:name, :price, :type, :color, :psu, :side_panel]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
