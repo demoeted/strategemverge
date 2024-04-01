@@ -1,6 +1,6 @@
 class Cpu < ApplicationRecord
     belongs_to :orderproduct, optional: true
-    belongs_to :categories, optional: true
+    belongs_to :category, optional: true
 
 
     validates :name, :core_count, :core_clock, :smt, presence: true
@@ -11,10 +11,10 @@ class Cpu < ApplicationRecord
     validates_numericality_of :core_clock, :boost_clock, precision: 2
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "name", "price", "core_clock", "boost_clock", "integrated_graphics", "smt", "updated_at"]
+        ["created_at", "id", "id_value", "name", "price", "core_clock", "boost_clock", "integrated_graphics", "smt", "category_id", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct"]
+        ["orderproduct", "category"]
     end
 end

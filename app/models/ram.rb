@@ -1,6 +1,6 @@
 class Ram < ApplicationRecord
     belongs_to :orderproduct, optional: true
-    belongs_to :categories, optional: true
+    belongs_to :category, optional: true
 
 
     validates :name, :speed, :color, :first_word_latency, :cas_latency, presence: true
@@ -10,10 +10,10 @@ class Ram < ApplicationRecord
     validates :speed, :color, length: { maximum: 30 }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "name", "price", "speed", "price_per_gb", "color", "first_word_latency", "cas_latency", "updated_at"]
+        ["created_at", "id", "id_value", "name", "price", "speed", "price_per_gb", "color", "first_word_latency", "cas_latency", "category_id", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct"]
+        ["orderproduct", "category"]
     end
 end
