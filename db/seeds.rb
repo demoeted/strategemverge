@@ -1,3 +1,4 @@
+AdminUser.destroy_all
 CaseFan.destroy_all
 Case.destroy_all
 ComputerMonitor.destroy_all
@@ -61,7 +62,13 @@ thermalpastes = CSV.parse(csv_thermalpaste, headers: true, encoding: "utf-8")
 videocards = CSV.parse(csv_videocard, headers: true, encoding: "utf-8")
 webcams = CSV.parse(csv_webcam, headers: true, encoding: "utf-8")
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+categories = ['Case Fans', 'Cases', 'CPUs', 'Keyboards', 'Memory', 'Monitors', 'Motherboards', 'Mouses', 'Optical Drives', 'Power Supplies', 'Speakers', 'Thermal Pastes', 'Video Cards', 'Webcams']
+
+categories.each do |c|
+  Category.find_or_create_by(
+    name: c
+  )
+end
 
 casefans.each do |c|
   casefan = CaseFan.find_or_create_by(
@@ -70,7 +77,8 @@ casefans.each do |c|
     size:                 c['size'],
     color:                c['color'],
     rpm:                  c['rpm'],
-    pwm:                  c['pwm']
+    pwm:                  c['pwm'],
+    category_id:          1
   )
 end
 
@@ -81,7 +89,8 @@ cases.each do |c|
     casetype:             c['type'],
     color:                c['color'],
     psu:                  c['psu'],
-    side_panel:           c['side_panel']
+    side_panel:           c['side_panel'],
+    category_id:          2
   )
 end
 
@@ -93,7 +102,8 @@ cpus.each do |c|
     core_clock:           c['core_clock'],
     boost_clock:          c['boost_clock'],
     integrated_graphics:  c['graphics'],
-    smt:                  c['smt']
+    smt:                  c['smt'],
+    category_id:          3
   )
 end
 
@@ -106,7 +116,8 @@ keyboards.each do |c|
     backlit_color:        c['backlit'],
     tenkeyless:           c['tenkeyless'],
     connection_type:      c['connection_type'],
-    color:                c['color']
+    color:                c['color'],
+    category_id:          4
   )
 end
 
@@ -118,7 +129,8 @@ memory.each do |c|
     price_per_gb:         c['price_per_gb'],
     color:                c['color'],
     first_word_latency:   c['first_word_latency'],
-    cas_latency:          c['cas_latency']
+    cas_latency:          c['cas_latency'],
+    category_id:          5
   )
 end
 
@@ -131,7 +143,8 @@ monitors.each do |c|
     refresh_rate:         c['refresh_rate'],
     response_time:        c['response_time'],
     panel_type:           c['panel_type'],
-    aspect_ratio:         c['aspect_ratio']
+    aspect_ratio:         c['aspect_ratio'],
+    category_id:          6
   )
 end
 
@@ -143,7 +156,8 @@ motherboards.each do |c|
     form_factor:          c['form_factor'],
     max_memory:           c['max_memory'],
     memory_slots:         c['memory_slots'],
-    color:                c['color']
+    color:                c['color'],
+    category_id:          7
   )
 end
 
@@ -155,7 +169,8 @@ mouses.each do |c|
     connection_type:      c['connection_type'],
     max_dpi:              c['max_dpi'],
     hand_orientation:     c['hand_orientation'],
-    color:                c['color']
+    color:                c['color'],
+    category_id:          8
   )
 end
 
@@ -168,7 +183,8 @@ opticaldrives.each do |c|
     cd:                   c['cd'],
     bd_write:             c['bd_write'],
     dvd_write:            c['dvd_write'],
-    cd_write:             c['cd_write']
+    cd_write:             c['cd_write'],
+    category_id:          9
   )
 end
 
@@ -180,7 +196,8 @@ powersupplies.each do |c|
     efficiency:           c['efficiency'],
     wattage:              c['wattage'],
     modular:              c['modular'],
-    color:                c['color']
+    color:                c['color'],
+    category_id:          10
   )
 end
 
@@ -191,7 +208,8 @@ speakers.each do |c|
     configuration:        c['configuration'],
     wattage:              c['wattage'],
     frequency:            c['frequency_response'],
-    color:                c['color']
+    color:                c['color'],
+    category_id:          11
   )
 end
 
@@ -199,7 +217,8 @@ thermalpastes.each do |c|
   thermalpaste = ThermalPaste.find_or_create_by(
     name:                 c['name'],
     price:                c['price'],
-    amount:               c['amount']
+    amount:               c['amount'],
+    category_id:          12
   )
 end
 
@@ -212,7 +231,8 @@ videocards.each do |c|
     core_clock:           c['core_clock'],
     boost_clock:          c['boost_clock'],
     color:                c['color'],
-    length:               c['length']
+    length:               c['length'],
+    category_id:          13
   )
 end
 
@@ -224,6 +244,10 @@ webcams.each do |c|
     connection:           c['connection'],
     focus_type:           c['focus_type'],
     os:                   c['os'],
-    fov:                  c['fov']
+    fov:                  c['fov'],
+    category_id:          14
   )
 end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+

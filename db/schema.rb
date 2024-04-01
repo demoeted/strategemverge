@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_01_180946) do
   create_table "about_us", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.boolean "pwm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_case_fans_on_category_id"
   end
 
   create_table "cases", force: :cascade do |t|
@@ -62,6 +64,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "color"
     t.string "psu"
     t.string "side_panel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_cases_on_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,6 +87,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "price"
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_computer_monitors_on_category_id"
   end
 
   create_table "contact_us", force: :cascade do |t|
@@ -96,6 +108,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "core_count"
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_cpus_on_category_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -106,6 +120,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_customers_on_category_id"
   end
 
   create_table "keyboards", force: :cascade do |t|
@@ -119,6 +135,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_keyboards_on_category_id"
   end
 
   create_table "mice", force: :cascade do |t|
@@ -131,6 +149,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_mice_on_category_id"
   end
 
   create_table "motherboards", force: :cascade do |t|
@@ -143,6 +163,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_motherboards_on_category_id"
   end
 
   create_table "optical_drives", force: :cascade do |t|
@@ -156,6 +178,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.integer "cd_write"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_optical_drives_on_category_id"
   end
 
   create_table "orderproducts", force: :cascade do |t|
@@ -187,6 +211,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_powersupplies_on_category_id"
   end
 
   create_table "rams", force: :cascade do |t|
@@ -199,6 +225,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.integer "cas_latency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_rams_on_category_id"
   end
 
   create_table "speakers", force: :cascade do |t|
@@ -210,6 +238,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_speakers_on_category_id"
   end
 
   create_table "thermal_pastes", force: :cascade do |t|
@@ -218,6 +248,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_thermal_pastes_on_category_id"
   end
 
   create_table "videocards", force: :cascade do |t|
@@ -231,6 +263,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.integer "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_videocards_on_category_id"
   end
 
   create_table "webcams", force: :cascade do |t|
@@ -243,8 +277,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
     t.decimal "fov"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_webcams_on_category_id"
   end
 
+  add_foreign_key "case_fans", "categories"
+  add_foreign_key "cases", "categories"
+  add_foreign_key "computer_monitors", "categories"
+  add_foreign_key "cpus", "categories"
+  add_foreign_key "customers", "categories"
+  add_foreign_key "keyboards", "categories"
+  add_foreign_key "mice", "categories"
+  add_foreign_key "motherboards", "categories"
+  add_foreign_key "optical_drives", "categories"
   add_foreign_key "orderproducts", "cases", column: "product_id"
   add_foreign_key "orderproducts", "orders"
   add_foreign_key "orderproducts", "powersupplies", column: "product_id"
@@ -254,4 +299,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_215806) do
   add_foreign_key "orderproducts", "videocards", column: "product_id"
   add_foreign_key "orderproducts", "webcams", column: "product_id"
   add_foreign_key "orders", "customers"
+  add_foreign_key "powersupplies", "categories"
+  add_foreign_key "rams", "categories"
+  add_foreign_key "speakers", "categories"
+  add_foreign_key "thermal_pastes", "categories"
+  add_foreign_key "videocards", "categories"
+  add_foreign_key "webcams", "categories"
 end

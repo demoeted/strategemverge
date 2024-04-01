@@ -1,5 +1,5 @@
 class Orderproduct < ApplicationRecord
-  belongs_to :order
+  belongs_to :order, optional: true
   has_many :case_fan, foreign_key: 'product_id'
   has_many :case, foreign_key: 'product_id'
   has_many :computer_monitor, foreign_key: 'product_id'
@@ -27,9 +27,4 @@ class Orderproduct < ApplicationRecord
     ["case_fan", "case", "computer_monitor", "cpu", "keyboard", "motherboard", "mouse", "optical_drive", "order", "powersupply", "ram", "speaker", "thermal_paste", "videocard", "webcam"]
   end
 
-
-
-  def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "id_value", "order_id", "price", "product_id", "quantity", "updated_at"]
-  end
 end
