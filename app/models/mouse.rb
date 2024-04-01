@@ -1,6 +1,6 @@
 class Mouse < ApplicationRecord
     belongs_to :orderproduct, optional: true
-    belongs_to :categories, optional: true
+    belongs_to :category, optional: true
 
 
     validates :name, :tracking_method, :connection_type, :color, presence: true
@@ -10,10 +10,10 @@ class Mouse < ApplicationRecord
     validates :max_dpi, numericality: { only_integer: true }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "name", "price", "tracking_method", "connection_type", "max_dpi", "hand_orientation", "color", "updated_at"]
+        ["created_at", "id", "id_value", "name", "price", "tracking_method", "connection_type", "max_dpi", "hand_orientation", "color", "category_id", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct"]
+        ["orderproduct", "category"]
     end
 end

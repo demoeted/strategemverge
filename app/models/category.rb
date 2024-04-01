@@ -21,6 +21,6 @@ class Category < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["case_fan", "case", "computer_monitor", "cpu", "keyboard", "motherboard", "mouse", "optical_drive", "order", "powersupply", "ram", "speaker", "thermal_paste", "videocard", "webcam"]
+    ["case_fan", "case", "computer_monitor", "cpu", "keyboard", "motherboard", "mouse", "optical_drive", "powersupply", "ram", "speaker", "thermal_paste", "videocard", "webcam"]
   end
 end

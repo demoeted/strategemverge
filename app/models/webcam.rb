@@ -1,6 +1,6 @@
 class Webcam < ApplicationRecord
     belongs_to :orderproduct, optional: true
-    belongs_to :categories, optional: true
+    belongs_to :category, optional: true
 
 
     validates :name, :resolutions, :connection, :os, presence: true
@@ -10,10 +10,10 @@ class Webcam < ApplicationRecord
     validates :resolutions, :connection, :focus_type, :os, length: { maximum: 50 }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "name", "price", "resolutions", "connection", "focus_type", "os", "fov", "updated_at"]
+        ["created_at", "id", "id_value", "name", "price", "resolutions", "connection", "focus_type", "os", "fov", "category_id", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct"]
+        ["orderproduct", "category"]
     end
 end

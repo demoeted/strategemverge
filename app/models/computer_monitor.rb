@@ -1,6 +1,6 @@
 class ComputerMonitor < ApplicationRecord
     belongs_to :orderproduct, optional: true
-    belongs_to :categories, optional: true
+    belongs_to :category, optional: true
 
     validates :name, :screen_size, :resolution, :refresh_rate, :aspect_ratio, presence: true
     validates :name, uniqueness: true, length: { maximum: 100 }
@@ -10,10 +10,10 @@ class ComputerMonitor < ApplicationRecord
     validates :refresh_rate, numericality: { in: 60..600 }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "name", "price", "screen_size", "resolution", "refresh_rate", "response_time", "panel_type", "aspect_ratio", "updated_at"]
+        ["created_at", "id", "id_value", "name", "price", "screen_size", "resolution", "refresh_rate", "response_time", "panel_type", "aspect_ratio", "category_id", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct"]
+        ["orderproduct", "category"]
     end
 end

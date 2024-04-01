@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_01_190235) do
   create_table "about_us", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -121,8 +121,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id", null: false
-    t.index ["category_id"], name: "index_customers_on_category_id"
   end
 
   create_table "keyboards", force: :cascade do |t|
@@ -288,7 +286,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
   add_foreign_key "cases", "categories"
   add_foreign_key "computer_monitors", "categories"
   add_foreign_key "cpus", "categories"
-  add_foreign_key "customers", "categories"
   add_foreign_key "keyboards", "categories"
   add_foreign_key "mice", "categories"
   add_foreign_key "motherboards", "categories"

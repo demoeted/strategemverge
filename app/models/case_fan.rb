@@ -1,6 +1,6 @@
 class CaseFan < ApplicationRecord
     belongs_to :orderproduct, optional: true
-    belongs_to :categories, optional: true
+    belongs_to :category, optional: true
 
     validates :name, :size, :color, :pwm, presence: true
     validates :name, uniqueness: true, length: { maximum: 100 }
@@ -9,10 +9,10 @@ class CaseFan < ApplicationRecord
     validates :size, numericality: { in: 40..200 }
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "name", "price", "size", "color", "rpm", "pwm", "updated_at"]
+        ["created_at", "id", "id_value", "name", "price", "size", "color", "rpm", "pwm", "category_id", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct"]
+        ["orderproduct", "category"]
     end
 end
