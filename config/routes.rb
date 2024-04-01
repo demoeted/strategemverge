@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   get 'webcams/index'
   get 'webcams/show'
   get 'videocards/index'
