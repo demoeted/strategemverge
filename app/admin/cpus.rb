@@ -5,7 +5,7 @@ ActiveAdmin.register Cpu do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :core_clock, :boost_clock, :integrated_graphics, :smt
+   permit_params :name, :price, :core_count, :core_clock, :boost_clock, :integrated_graphics, :smt
 
   #
   # or
@@ -16,4 +16,18 @@ ActiveAdmin.register Cpu do
   #   permitted
   # end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :core_count
+      f.input :core_clock
+      f.input :boost_clock
+      f.input :integrated_graphics
+      f.input :smt
+    end
+
+    f.actions
+  end
 end

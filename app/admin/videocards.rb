@@ -15,4 +15,19 @@ ActiveAdmin.register Videocard do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :chipset
+      f.input :memory
+      f.input :core_clock
+      f.input :boost_clock
+      f.input :color
+      f.input :length
+    end
+
+    f.actions
+  end
 end

@@ -15,4 +15,18 @@ ActiveAdmin.register Ram do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :speed
+      f.input :price_per_gb
+      f.input :color
+      f.input :first_word_latency
+      f.input :cas_latency
+    end
+
+    f.actions
+  end
 end

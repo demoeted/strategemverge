@@ -15,4 +15,19 @@ ActiveAdmin.register OpticalDrive do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :bd
+      f.input :dvd
+      f.input :cd
+      f.input :bd_write
+      f.input :dvd_write
+      f.input :cd_write
+    end
+
+    f.actions
+  end
 end

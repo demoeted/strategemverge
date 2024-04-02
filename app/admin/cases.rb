@@ -16,4 +16,17 @@ ActiveAdmin.register Case do
   #   permitted
   # end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :type
+      f.input :color
+      f.input :psu
+      f.input :side_panel
+    end
+
+    f.actions
+  end
 end

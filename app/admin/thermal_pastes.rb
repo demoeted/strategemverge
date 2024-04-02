@@ -14,5 +14,15 @@ ActiveAdmin.register ThermalPaste do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :amount
+    end
+
+    f.actions
+  end
 end

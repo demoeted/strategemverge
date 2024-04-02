@@ -5,7 +5,7 @@ ActiveAdmin.register ComputerMonitor do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio
+   permit_params :name, :price, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio
 
   #
   # or
@@ -16,4 +16,19 @@ ActiveAdmin.register ComputerMonitor do
   #   permitted
   # end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :screen_size
+      f.input :resolution
+      f.input :refresh_rate
+      f.input :response_time
+      f.input :panel_type
+      f.input :aspect_ratio
+    end
+
+    f.actions
+  end
 end

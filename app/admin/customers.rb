@@ -16,4 +16,16 @@ ActiveAdmin.register Customer do
   #   permitted
   # end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :first_name
+      f.input :last_name
+      f.input :email
+      f.input :phone_number
+      f.input :address
+    end
+
+    f.actions
+  end
 end
