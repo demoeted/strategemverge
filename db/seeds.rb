@@ -17,6 +17,8 @@ ThermalPaste.destroy_all
 Videocard.destroy_all
 Webcam.destroy_all
 
+url = 'https://raw.githubusercontent.com/docyx/pc-part-dataset/main/data/json/case-fan.json'
+
 casefanfile = Rails.root.join("db/case-fan.csv")
 casefile = Rails.root.join("db/case.csv")
 cpufile = Rails.root.join("db/cpu.csv")
