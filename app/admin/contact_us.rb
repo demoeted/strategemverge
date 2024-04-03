@@ -15,4 +15,13 @@ ActiveAdmin.register ContactU do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :phone_number
+      f.input :address
+    end
+
+    f.actions
+  end
 end

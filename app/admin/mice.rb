@@ -15,4 +15,18 @@ ActiveAdmin.register Mouse do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :tracking_method
+      f.input :connection_type
+      f.input :max_dpi
+      f.input :hand_orientation
+      f.input :color
+    end
+
+    f.actions
+  end
 end

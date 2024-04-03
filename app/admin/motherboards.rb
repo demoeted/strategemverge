@@ -15,4 +15,18 @@ ActiveAdmin.register Motherboard do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :socket
+      f.input :form_factor
+      f.input :max_memory
+      f.input :memory_slots
+      f.input :color
+    end
+
+    f.actions
+  end
 end

@@ -16,4 +16,17 @@ ActiveAdmin.register CaseFan do
   #   permitted
   # end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :size
+      f.input :color
+      f.input :rpm
+      f.input :pwm
+    end
+
+    f.actions
+  end
 end

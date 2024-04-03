@@ -14,5 +14,20 @@ ActiveAdmin.register Webcam do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :resolutions
+      f.input :connection
+      f.input :focus_type
+      f.input :os
+      f.input :fov
+    end
+
+    f.actions
+  end
   
 end

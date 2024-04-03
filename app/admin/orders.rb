@@ -15,4 +15,12 @@ ActiveAdmin.register Order do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :date_purchased
+    end
+
+    f.actions
+  end
 end

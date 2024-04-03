@@ -15,4 +15,17 @@ ActiveAdmin.register Speaker do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :configuration
+      f.input :wattage
+      f.input :frequency
+      f.input :color
+    end
+
+    f.actions
+  end
 end

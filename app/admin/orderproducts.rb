@@ -15,4 +15,13 @@ ActiveAdmin.register Orderproduct do
   #   permitted
   # end
   
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :price
+      f.input :quantity
+    end
+
+    f.actions
+  end
 end

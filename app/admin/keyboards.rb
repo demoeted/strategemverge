@@ -16,4 +16,19 @@ ActiveAdmin.register Keyboard do
   #   permitted
   # end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :price
+      f.input :style
+      f.input :switches
+      f.input :backlit_color
+      f.input :tenkeyless
+      f.input :connection_type
+      f.input :color
+    end
+
+    f.actions
+  end
 end
