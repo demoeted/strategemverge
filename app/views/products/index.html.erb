@@ -1,6 +1,21 @@
-<%= render partial: "layouts/sidenav",
+<div class="is-flex">
+    <%= render partial: "layouts/sidenav",
                object: @categories %>
-<% @products.each do |product| %>
-    <%= render partial: "layouts/product",
-               object: product %>
-<% end %>
+
+    <main class="box" >
+        <% @products.each_with_index do |product, index| %>
+            <% if index % 5 == 0 %>
+                <section class="columns">
+                    <%= render partial: "layouts/product",
+                               object: product %>
+            <% else %>
+                    <%= render partial: "layouts/product",
+                               object: product %>
+            <% end %>
+            <% if index % 5 == 4 %>
+                </section>
+            <% end %>
+        <% end %>
+    </main>
+</div>
+
