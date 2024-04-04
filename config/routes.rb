@@ -50,6 +50,6 @@ Rails.application.routes.draw do
   root "products#index"
   get "products/index"
   
-  get "about_us/index", to: "about_u#index"
-  get "contact_us/index", to: "contact_u#index"
+  get "about_us", to: "about_u#index"
+  get "contact_us", to: "contact_u#index"
 end
