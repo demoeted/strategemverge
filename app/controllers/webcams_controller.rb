@@ -1,6 +1,6 @@
 class WebcamsController < ApplicationController
   def index
-    @webcams = Webcam.all.page(params[:page]).per(9)
+    @webcams = Webcam.all.page(params[:page]).per(25)
   end
 
   def show

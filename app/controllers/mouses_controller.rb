@@ -1,6 +1,6 @@
 class MousesController < ApplicationController
   def index
-    @mouses = Mouse.all.page(params[:page]).per(9)
+    @mouses = Mouse.all.page(params[:page]).per(25)
   end
 
   def show

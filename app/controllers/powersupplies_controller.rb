@@ -1,6 +1,6 @@
 class PowersuppliesController < ApplicationController
   def index
-    @powersupplies = Powersupply.all.page(params[:page]).per(9)
+    @powersupplies = Powersupply.all.page(params[:page]).per(25)
   end
 
   def show

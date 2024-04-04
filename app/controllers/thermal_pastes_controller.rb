@@ -1,6 +1,6 @@
 class ThermalPastesController < ApplicationController
   def index
-    @thermal_pastes = ThermalPaste.all.page(params[:page]).per(9)
+    @thermal_pastes = ThermalPaste.all.page(params[:page]).per(25)
   end
 
   def show

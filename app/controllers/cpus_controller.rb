@@ -1,6 +1,6 @@
 class CpusController < ApplicationController
   def index
-    @cpus = Cpus.all.page(params[:page]).per(9)
+    @cpus = Cpus.all.page(params[:page]).per(25)
   end
 
   def show

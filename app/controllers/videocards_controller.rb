@@ -1,6 +1,6 @@
 class VideocardsController < ApplicationController
   def index
-    @videocards = Videocard.all.page(params[:page]).per(9)
+    @videocards = Videocard.all.page(params[:page]).per(25)
   end
 
   def show

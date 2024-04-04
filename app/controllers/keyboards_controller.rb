@@ -1,6 +1,6 @@
 class KeyboardsController < ApplicationController
   def index
-    @keyboards = Keyboard.all.page(params[:page]).per(9)
+    @keyboards = Keyboard.all.page(params[:page]).per(25)
   end
 
   def show

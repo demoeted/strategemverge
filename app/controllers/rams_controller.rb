@@ -1,6 +1,6 @@
 class RamsController < ApplicationController
   def index
-    @Rams = Ram.all.page(params[:page]).per(9)
+    @Rams = Ram.all.page(params[:page]).per(25)
   end
 
   def show

@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all.page(params[:page]).per(9)
+    @categories = Category.all.page(params[:page]).per(25)
   end
 
   def show

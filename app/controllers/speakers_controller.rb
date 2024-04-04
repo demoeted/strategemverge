@@ -1,6 +1,6 @@
 class SpeakersController < ApplicationController
   def index
-    @speakers = Speaker.all.page(params[:page]).per(9)
+    @speakers = Speaker.all.page(params[:page]).per(25)
   end
 
   def show

@@ -1,6 +1,6 @@
 class CasesController < ApplicationController
   def index
-    @cases = Case.all.page(params[:page]).per(9)
+    @cases = Case.all.page(params[:page]).per(25)
   end
 
   def show

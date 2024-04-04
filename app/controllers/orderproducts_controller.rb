@@ -1,6 +1,6 @@
 class OrderproductsController < ApplicationController
   def index
-    @orderproducts = Orderproduct.all.page(params[:page]).per(9)
+    @orderproducts = Orderproduct.all.page(params[:page]).per(25)
   end
 
   def show

@@ -1,6 +1,6 @@
 class OpticalDrivesController < ApplicationController
   def index
-    @optical_drives_controllers = OpticalDrive.all.page(params[:page]).per(9)
+    @optical_drives_controllers = OpticalDrive.all.page(params[:page]).per(25)
   end
 
   def show
