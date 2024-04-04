@@ -1,2 +1,9 @@
-<h1>CaseFans#index</h1>
-<p>Find me in app/views/case_fans/index.html.erb</p>
+<div>
+  <% @casefans.each do |c| %>
+    <div>
+      <p><%= c.name %></p>
+      <p><%= c.price %></p>
+    </div>
+  <% end %>
+  <%= paginate @casefans %>
+</div>
