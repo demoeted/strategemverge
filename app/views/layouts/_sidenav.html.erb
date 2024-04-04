@@ -1,0 +1,8 @@
+<aside class="menu">
+    <p class="menu-label">Filter</p>
+    <ul class="menu-list">
+        <% @categories.each do |category| %>
+            <li><%= category.name %><%# link_to "#{category.name}", controller: "#{category.name}", action: "index" %></li>
+        <% end %>
+    </ul>
+</aside>

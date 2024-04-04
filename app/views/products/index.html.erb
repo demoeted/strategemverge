@@ -1,0 +1,6 @@
+<%= render partial: "layouts/sidenav",
+               object: @categories %>
+<% @products.each do |product| %>
+    <%= render partial: "layouts/product",
+               object: product %>
+<% end %>
