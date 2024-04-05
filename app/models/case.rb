@@ -4,7 +4,7 @@ class Case < ApplicationRecord
 
     validates :name, :casetype, :color, presence: true
     validates :name, uniqueness: true, length: { maximum: 100 }
-    validates :price, numericality: { only_numeric: true }
+    validates :price, numericality: { only_float: true }
     validates :casetype, :color, :psu, :side_panel, length: { maximum: 30 }
 
     def self.ransackable_attributes(auth_object = nil)
