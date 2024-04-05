@@ -4,7 +4,7 @@ class CaseFan < ApplicationRecord
 
     validates :name, :price, :size, :color, :rpm, presence: true
     validates :name, uniqueness: true, length: { maximum: 100 }
-    validates :price, numericality: { only_numeric: true }
+    validates :price, numericality: { only_float: true }
     validates :size, numericality: { only_integer: true }
     validates :size, numericality: { in: 40..200 }
     validates :color, length: { maximum: 50 }

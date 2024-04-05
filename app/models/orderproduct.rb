@@ -16,7 +16,7 @@ class Orderproduct < ApplicationRecord
   has_many :webcam, foreign_key: 'product_id'
 
   validates :quantity, presence: true
-  validates :price, numericality: { only_numeric: true }
+  validates :price, numericality: { only_float: true }
   validates :quantity, numericality: { only_integer: true }
 
   def self.ransackable_attributes(auth_object = nil)
