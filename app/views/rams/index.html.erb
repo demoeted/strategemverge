@@ -2,6 +2,15 @@
   <%= render partial: "layouts/sidenav",
               object: @categories %>
 
+  <%= form_with(url: rams_path, method: :get, local: true, class: "") do |form| %>
+    <%= form.select :filter, options_for_select([
+      ['All', 'all'],
+      ['New', 'new'],
+      ['Recently Updated', 'recently updated']
+    ]), {}, class: ""%>
+    <%= form.submit 'Search', class: "" %>
+  <% end %>
+
   <main class="box" >
     <% @rams.each_with_index do |ram, index| %>
       <% if index % 5 == 0 %>
