@@ -2,6 +2,16 @@
   <%= render partial: "layouts/sidenav",
               object: @categories %>
 
+  <%= form_with(url: case_fans_path, method: :get, local: true, class: "") do |form| %>
+    <%= form.select :filter, options_for_select([
+      ['All', 'all'],
+      ['New', 'new'],
+      ['Recently Updated', 'recently updated']
+    ]), {}, class: ""%>
+    <%= form.submit 'Search', class: "" %>
+  <% end %>
+  <p><%= @message %></p>
+
   <main class="box" >
     <% @casefans.each_with_index do |casefan, index| %>
         <% if index % 5 == 0 %>
