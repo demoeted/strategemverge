@@ -1,0 +1,13 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @ram.name %></h1>
+  <h2>Price: $<%= @ram.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Speed: <%= @ram.speed %></li>
+    <li>Price per GB: <%= @ram.price_per_gb %></li>
+    <li>Color: <%= @ram.color %></li>
+    <li>First Word Latency: <%= @ram.first_word_latency %></li>
+    <li>CAS Latency: <%= @ram.cas_latency %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@ram.category_id) %></li>
+  </ul>
+</div>

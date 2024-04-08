@@ -1,2 +1,21 @@
-<h1>Keyboards#index</h1>
-<p>Find me in app/views/keyboards/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @keyboards.each_with_index do |keyboard, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: keyboard %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: keyboard %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @keyboards %>
+  </main>
+</div>

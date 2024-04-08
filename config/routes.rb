@@ -1,42 +1,26 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-  get 'categories/show'
-  get 'webcams/index'
-  get 'webcams/show'
-  get 'videocards/index'
-  get 'videocards/show'
-  get 'thermal_pastes/index'
-  get 'thermal_pastes/show'
-  get 'speakers/index'
-  get 'speakers/show'
-  get 'rams/index'
-  get 'rams/show'
-  get 'powersupplies/index'
-  get 'powersupplies/show'
-  get 'orderproducts/index'
-  get 'orderproducts/show'
-  get 'orders/index'
-  get 'orders/show'
-  get 'optical_drives/index'
-  get 'optical_drives/show'
-  get 'mouses/index'
-  get 'mouses/show'
-  get 'motherboards/index'
-  get 'motherboards/show'
-  get 'keyboards/index'
-  get 'keyboards/show'
-  get 'customers/index'
-  get 'customers/show'
-  get 'cpus/index'
-  get 'cpus/show'
-  get 'cpu/index'
-  get 'cpu/show'
-  get 'computer_monitor/index'
-  get 'computer_monitor/show'
-  get 'cases/index'
-  get 'cases/show'
-  get 'case_fans/index'
-  get 'case_fans/show'
+
+  resources :about_u, only: [:index]
+  resources :case_fans, only: [:index, :show]
+  resources :cases, only: [:index, :show]
+  resources :categories, only: [:index, :show]
+  resources :computer_monitors, only: [:index, :show]
+  resources :contact_u, only: [:index]
+  resources :cpus, only: [:index, :show]
+  resources :customers, only: [:index, :show]
+  resources :keyboards, only: [:index, :show]
+  resources :mouses, only: [:index, :show]
+  resources :motherboards, only: [:index, :show]
+  resources :optical_drives, only: [:index, :show]
+  resources :orderproducts, only: [:index, :show]
+  resources :orders, only: [:index, :show]
+  resources :powersupplies, only: [:index, :show]
+  resources :rams, only: [:index, :show]
+  resources :speakers, only: [:index, :show]
+  resources :thermal_pastes, only: [:index, :show]
+  resources :videocards, only: [:index, :show]
+  resources :webcams, only: [:index, :show]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -48,8 +32,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "products#index"
-  get "products/index"
-  
+
   get "about_us", to: "about_u#index"
   get "contact_us", to: "contact_u#index"
 end
+

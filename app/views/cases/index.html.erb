@@ -1,2 +1,21 @@
-<h1>Cases#index</h1>
-<p>Find me in app/views/cases/index.html.erb</p>
+<div class="is-flex">
+    <%= render partial: "layouts/sidenav",
+               object: @categories %>
+
+    <main class="box" >
+        <% @cases.each_with_index do |singlecase, index| %>
+            <% if index % 5 == 0 %>
+                <section class="columns">
+                    <%= render partial: "layouts/product",
+                               object: singlecase %>
+            <% else %>
+                    <%= render partial: "layouts/product",
+                               object: singlecase %>
+            <% end %>
+            <% if index % 5 == 4 %>
+                </section>
+            <% end %>
+        <% end %>
+        <%= paginate @cases %>
+    </main>
+</div>

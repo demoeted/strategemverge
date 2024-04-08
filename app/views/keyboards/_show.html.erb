@@ -1,0 +1,18 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @keyboard.name %></h1>
+  <h2>Price: $<%= @keyboard.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Style: <%= @keyboard.style %></li>
+    <li>Switches: <%= @keyboard.switches %></li>
+    <li>Backlit Colour: <%= @keyboard.backlit_color %></li>
+    <% if(@keyboard.tenkeyless == true ) %>
+      <li>Ten-Keyless: Yes</li>
+    <% elsif(@keyboard.tenkeyless == false) %>
+      <li>Ten-Keyless: No</li>
+    <% end %>
+    <li>Connection Type: <%= @keyboard.connection_type %></li>
+    <li>Colour: <%= @keyboard.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@keyboard.category_id) %></li>
+  </ul>
+</div>

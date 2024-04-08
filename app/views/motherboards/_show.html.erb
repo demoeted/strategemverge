@@ -1,0 +1,13 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @motherboard.name %></h1>
+  <h2>Price: $<%= @motherboard.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Socket: <%= @motherboard.socket %></li>
+    <li>Form Factor: <%= @motherboard.form_factor %></li>
+    <li>Max Memory: <%= @motherboard.max_memory %></li>
+    <li>Memory Slots: <%= @motherboard.memory_slots %></li>
+    <li>Colour: <%= @motherboard.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@motherboard.category_id) %></li>
+  </ul>
+</div>

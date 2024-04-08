@@ -1,2 +1,21 @@
-<h1>Mouses#index</h1>
-<p>Find me in app/views/mouses/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @mouses.each_with_index do |mouse, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: mouse %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: mouse %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @mouses %>
+  </main>
+</div>

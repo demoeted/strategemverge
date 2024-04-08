@@ -1,0 +1,12 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @casefan.name %></h1>
+  <h2>Price: $<%= @casefan.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Size: <%= @casefan.size %> </li>
+    <li>Color: <%= @casefan.color %></li>
+    <li>RPM: <%= @casefan.rpm %></li>
+    <li>PWM: <%= @casefan.pwm %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@casefan.category_id) %></li>
+  </ul>
+</div>

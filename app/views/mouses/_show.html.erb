@@ -1,0 +1,13 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @mouse.name %></h1>
+  <h2>Price: $<%= @mouse.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Tracking Method: <%= @mouse.tracking_method %></li>
+    <li>Connection Type: <%= @mouse.connection_type %></li>
+    <li>Max DPI: <%= @mouse.max_dpi %></li>
+    <li>Hand Orientation: <%= @mouse.hand_orientation %></li>
+    <li>Colour: <%= @mouse.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@mouse.category_id) %></li>
+  </ul>
+</div>

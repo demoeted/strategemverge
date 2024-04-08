@@ -1,0 +1,13 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @powersupplies.name %></h1>
+  <h2>Price: $<%= @powersupplies.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Type: <%= @powersupply.powersupplytype%></li>
+    <li>Efficiency: <%= @powersupply.efficiency %></li>
+    <li>Wattage: <%= @powersupply.wattage %></li>
+    <li>Modular: <%= @powersupply.modular %></li>
+    <li>Colour: <%= @powersupply.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@powersupply.category_id) %></li>
+  </ul>
+</div>

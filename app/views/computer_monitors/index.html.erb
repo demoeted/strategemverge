@@ -1,0 +1,21 @@
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+      <% @computer_monitors.each_with_index do |computer_monitor, index| %>
+          <% if index % 5 == 0 %>
+              <section class="columns">
+                  <%= render partial: "layouts/product",
+                              object: computer_monitor %>
+          <% else %>
+                  <%= render partial: "layouts/product",
+                              object: computer_monitor %>
+          <% end %>
+          <% if index % 5 == 4 %>
+              </section>
+          <% end %>
+      <% end %>
+      <%= paginate @computer_monitors %>
+  </main>
+</div>

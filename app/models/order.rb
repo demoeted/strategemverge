@@ -2,8 +2,8 @@ class Order < ApplicationRecord
     belongs_to :customer, optional: true
     has_many :orderproduct
 
-    validates :date_purchased, presence: true
-    validate :valid_date
+   validates :date_purchased, presence: true
+    # validate :valid_date
 
     private
 

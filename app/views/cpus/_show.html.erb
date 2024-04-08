@@ -1,0 +1,13 @@
+<div class="container is-max-desktop">
+  <h1>Name: <%= @cpu.name %></h1>
+  <h2>Price: $<%= @cpu.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Core Count: <%= @cpu.core_count %></li>
+    <li>Core Clock: <%= @cpu.core_clock %></li>
+    <li>Boost Clock: <%= @cpu.boost_clock %></li>
+    <li>Integrated Graphics: <%= @cpu.integrated_graphics %></li>
+    <li>SMT: <%= @cpu.smt %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@cpu.category_id) %></li>
+  </ul>
+</div>
