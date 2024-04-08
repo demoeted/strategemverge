@@ -35,5 +35,6 @@ Rails.application.routes.draw do
   
   get "about_us", to: "about_u#index"
   get "contact_us", to: "contact_u#index"
+  get "memory", to: "rams#index"
 end
 

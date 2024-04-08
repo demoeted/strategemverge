@@ -14,7 +14,7 @@ class CaseFansController < ApplicationController
         @casefans = CaseFan.where('updated_at >= ?', 3.days.ago)
                                         .where.not('created_at >= ?', 3.days.ago)
                                         .page(params[:page]).per(25)
-        @message = "Filtered: Recently Added"
+        @message = "Filtered: Recently Updated"
     end
     @categories = Category.all
   end
