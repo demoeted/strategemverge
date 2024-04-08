@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @mouse.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @mouse.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @mouse.name %></h1>
   <h2>Price: $<%= @mouse.price %></h2>
   <h3>Specifications:</h3>

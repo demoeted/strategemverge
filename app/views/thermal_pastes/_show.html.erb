@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @thermal_paste.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @thermal_paste.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @thermal_paste.name %></h1>
   <h2>Price: $<%= @thermal_paste.price %></h2>
   <h3>Specifications:</h3>

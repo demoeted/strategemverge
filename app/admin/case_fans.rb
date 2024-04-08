@@ -5,8 +5,9 @@ ActiveAdmin.register CaseFan do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :price, :size, :color, :rpm, :pwm
+  permit_params :name, :price, :size, :color, :rpm, :pwm, :category_id, :image
 
+  remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -25,8 +26,13 @@ ActiveAdmin.register CaseFan do
       f.input :color
       f.input :rpm
       f.input :pwm
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
+
     end
 
     f.actions
   end
+
 end

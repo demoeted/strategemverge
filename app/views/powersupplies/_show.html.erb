@@ -1,6 +1,13 @@
 <div class="container is-max-desktop">
-  <h1>Name: <%= @powersupplies.name %></h1>
-  <h2>Price: $<%= @powersupplies.price %></h2>
+  <% if @powersupply.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @powersupply.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
+  <h1>Name: <%= @powersupply.name %></h1>
+  <h2>Price: $<%= @powersupply.price %></h2>
   <h3>Specifications:</h3>
   <ul>
     <li>Type: <%= @powersupply.powersupplytype%></li>

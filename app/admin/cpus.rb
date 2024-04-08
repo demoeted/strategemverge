@@ -5,8 +5,9 @@ ActiveAdmin.register Cpu do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :core_count, :core_clock, :boost_clock, :integrated_graphics, :smt
+   permit_params :name, :price, :core_count, :core_clock, :boost_clock, :integrated_graphics, :smt, :category_id, :image
 
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -26,6 +27,10 @@ ActiveAdmin.register Cpu do
       f.input :boost_clock
       f.input :integrated_graphics
       f.input :smt
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
     end
 
     f.actions

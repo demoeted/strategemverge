@@ -1,4 +1,5 @@
 class ComputerMonitor < ApplicationRecord
+    has_one_attached :image
     belongs_to :orderproduct, optional: true
     belongs_to :category, optional: true
 

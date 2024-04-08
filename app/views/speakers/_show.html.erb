@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @speaker.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @speaker.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @speaker.name %></h1>
   <h2>Price: $<%= @speaker.price %></h2>
   <h3>Specifications:</h3>

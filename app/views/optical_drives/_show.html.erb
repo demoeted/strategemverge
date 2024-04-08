@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @optical_drive.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @optical_drive.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @optical_drive.name %></h1>
   <h2>Price: $<%= @optical_drive.price %></h2>
   <h3>Specifications:</h3>

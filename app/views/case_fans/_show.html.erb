@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @casefan.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @casefan.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @casefan.name %></h1>
   <h2>Price: $<%= @casefan.price %></h2>
   <h3>Specifications:</h3>

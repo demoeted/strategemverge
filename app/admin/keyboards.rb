@@ -5,7 +5,9 @@ ActiveAdmin.register Keyboard do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :style, :switches, :backlit_color, :tenkeyless, :connection_type, :color
+   permit_params :name, :price, :style, :switches, :backlit_color, :tenkeyless, :connection_type, :color, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
 
    #
   # or
@@ -27,6 +29,10 @@ ActiveAdmin.register Keyboard do
       f.input :tenkeyless
       f.input :connection_type
       f.input :color
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
     end
 
     f.actions

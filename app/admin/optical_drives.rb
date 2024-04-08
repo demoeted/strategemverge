@@ -5,7 +5,9 @@ ActiveAdmin.register OpticalDrive do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :bd, :dvd, :cd, :bd_write, :dvd_write, :cd_write
+   permit_params :name, :price, :bd, :dvd, :cd, :bd_write, :dvd_write, :cd_write, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -14,7 +16,7 @@ ActiveAdmin.register OpticalDrive do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
   form do |f|
     f.semantic_errors
     f.inputs do
@@ -26,6 +28,11 @@ ActiveAdmin.register OpticalDrive do
       f.input :bd_write
       f.input :dvd_write
       f.input :cd_write
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
+
     end
 
     f.actions

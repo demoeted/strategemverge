@@ -5,7 +5,9 @@ ActiveAdmin.register Motherboard do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :socket, :form_factor, :max_memory, :memory_slots, :color
+   permit_params :name, :price, :socket, :form_factor, :max_memory, :memory_slots, :color, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -14,7 +16,7 @@ ActiveAdmin.register Motherboard do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
   form do |f|
     f.semantic_errors
     f.inputs do
@@ -25,6 +27,11 @@ ActiveAdmin.register Motherboard do
       f.input :max_memory
       f.input :memory_slots
       f.input :color
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
+
     end
 
     f.actions

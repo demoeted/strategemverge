@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @videocard.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @videocard.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @videocard.name %></h1>
   <h2>Price: $<%= @videocard.price %></h2>
   <h3>Specifications:</h3>

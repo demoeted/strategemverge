@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @ram.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @ram.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @ram.name %></h1>
   <h2>Price: $<%= @ram.price %></h2>
   <h3>Specifications:</h3>

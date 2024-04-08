@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :case_fans, only: [:index, :show]
   resources :cases, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :computer_monitors, only: [:index, :show]
+  resources :computer_monitor, only: [:index, :show]
   resources :contact_u, only: [:index]
   resources :cpus, only: [:index, :show]
   resources :customers, only: [:index, :show]

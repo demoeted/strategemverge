@@ -1,4 +1,11 @@
 <div class="container is-max-desktop">
+  <% if @cpu.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @cpu.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
   <h1>Name: <%= @cpu.name %></h1>
   <h2>Price: $<%= @cpu.price %></h2>
   <h3>Specifications:</h3>
