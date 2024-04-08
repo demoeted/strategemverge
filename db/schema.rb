@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_190235) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
   create_table "about_us", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -88,12 +88,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_190235) do
   create_table "cases", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "casetype"
+    t.string "type"
     t.string "color"
     t.string "psu"
     t.string "side_panel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "casetype"
     t.integer "category_id", null: false
     t.index ["category_id"], name: "index_cases_on_category_id"
   end
@@ -148,6 +149,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_190235) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_customers_on_category_id"
   end
 
   create_table "keyboards", force: :cascade do |t|
@@ -230,13 +233,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_190235) do
   create_table "powersupplies", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "powersupplytype"
-    t.string "efficiency"
+    t.string "type"
+    t.string "efficienty"
     t.integer "wattage"
     t.string "modular"
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "powersupplytype"
+    t.string "efficiency"
     t.integer "category_id", null: false
     t.index ["category_id"], name: "index_powersupplies_on_category_id"
   end
@@ -313,6 +318,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_190235) do
   add_foreign_key "cases", "categories"
   add_foreign_key "computer_monitors", "categories"
   add_foreign_key "cpus", "categories"
+  add_foreign_key "customers", "categories"
   add_foreign_key "keyboards", "categories"
   add_foreign_key "mice", "categories"
   add_foreign_key "motherboards", "categories"

@@ -2,7 +2,7 @@
     <p class="menu-label">Filter</p>
     <ul class="menu-list">
         <% @categories.each do |category| %>
-            <li><%= category.name %><%# link_to "#{category.name}", controller: "#{category.name}", action: "index" %></li>
+            <li><%= link_to category.name, polymorphic_url(category) %></li>
         <% end %>
     </ul>
 </aside>
