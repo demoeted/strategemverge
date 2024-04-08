@@ -1,2 +1,21 @@
-<h1>Powersupplies#index</h1>
-<p>Find me in app/views/powersupplies/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @powersupplies.each_with_index do |powersupply, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: powersupply %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: powersupply %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @powersupplies %>
+  </main>
+</div>

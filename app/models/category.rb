@@ -14,7 +14,7 @@ class Category < ApplicationRecord
   has_many :videocard, foreign_key: 'category_id'
   has_many :webcam, foreign_key: 'category_id'
 
-  validates :name, presence: true
+ validates :name, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "id_value", "name", "updated_at"]

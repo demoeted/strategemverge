@@ -1,0 +1,20 @@
+<div class="container is-max-desktop">
+  <% if @webcam.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @webcam.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
+  <h1>Name: <%= @webcam.name %></h1>
+  <h2>Price: $<%= @webcam.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Resolutions: <%= @webcam.resolutions %></li>
+    <li>Connection: <%= @webcam.connection %></li>
+    <li>Focus Type: <%= @webcam.focus_type %></li>
+    <li>OS: <%= @webcam.os %> </li>
+    <li>FOV: <%= @webcam.fov %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@webcam.category_id) %></li>
+  </ul>
+</div>

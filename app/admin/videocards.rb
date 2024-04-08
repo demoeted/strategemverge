@@ -5,7 +5,9 @@ ActiveAdmin.register Videocard do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :chipset, :memory, :core_clock, :boost_clock, :color, :length
+   permit_params :name, :price, :chipset, :memory, :core_clock, :boost_clock, :color, :length, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -14,7 +16,7 @@ ActiveAdmin.register Videocard do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
   form do |f|
     f.semantic_errors
     f.inputs do
@@ -26,6 +28,11 @@ ActiveAdmin.register Videocard do
       f.input :boost_clock
       f.input :color
       f.input :length
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
+
     end
 
     f.actions

@@ -1,9 +1,12 @@
 class RamsController < ApplicationController
   def index
-    @Rams = Ram.all.page(params[:page]).per(25)
+    @rams = Ram.all.page(params[:page]).per(25)
+    @categories = Category.all
   end
 
   def show
-    @Ram = Ram.find(params[:id])
+    @ram = Ram.find(params[:id])
+    @categoryname = Category.where(id: @ram.category_id)
+                        .select("name")
   end
 end

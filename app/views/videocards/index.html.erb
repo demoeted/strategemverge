@@ -1,2 +1,21 @@
-<h1>Videocards#index</h1>
-<p>Find me in app/views/videocards/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @videocards.each_with_index do |videocard, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: videocard %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: videocard %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @videocards %>
+  </main>
+</div>

@@ -1,2 +1,21 @@
-<h1>Speakers#index</h1>
-<p>Find me in app/views/speakers/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @speakers.each_with_index do |speaker, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: speaker %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: speaker %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @speakers %>
+  </main>
+</div>

@@ -1,0 +1,21 @@
+<div class="container is-max-desktop">
+  <% if @optical_drive.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @optical_drive.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
+  <h1>Name: <%= @optical_drive.name %></h1>
+  <h2>Price: $<%= @optical_drive.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>BD: <%= @optical_drive.bd %></li>
+    <lI>DVD: <%= @optical_drive.dvd %></li>
+    <li>CD: <%= @optical_drive.cd %></li>
+    <li>BD Write Speed: <%= @optical_drive.bd_write %></li>
+    <li>DVD Write Speed: <%= @optical_drive.dvd_write %></li>
+    <li>CD Write Speed: <%= @optical_drive.cd_write %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@optical_drive.category_id) %></li>
+  </ul>
+</div>

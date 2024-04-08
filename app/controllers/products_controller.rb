@@ -18,6 +18,6 @@ class ProductsController < ApplicationController
    @products = [@case_fans, @cases, @computer_monitors, @cpus, @keyboards, @motherboards, @mice, @optical_drives, @power_supplies, @rams, @speakers, @thermal_pastes, @videocards, @webcams].flatten
    @products = Kaminari.paginate_array(@products).page(params[:page]).per(25)
 
-   @categories = Category.all.page(params[:id]).per(25)
+   @categories = Category.all
  end
 end

@@ -1,9 +1,12 @@
 class CpusController < ApplicationController
   def index
-    @cpus = Cpus.all.page(params[:page]).per(25)
+    @cpus = Cpu.all.page(params[:page]).per(25)
+    @categories = Category.all
   end
 
   def show
-    @cpu = Cpus.find(params[:id])
+    @cpu = Cpu.find(params[:id])
+    @categoryname = Category.where(id: @cpu.category_id)
+                        .select("name")
   end
 end

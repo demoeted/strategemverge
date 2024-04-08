@@ -1,0 +1,20 @@
+<div class="container is-max-desktop">
+  <% if @computer_monitor.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @computer_monitor.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
+  <h1>Name: <%= @computer_monitor.name %></h1>
+  <h2>Price: $<%= @computer_monitor.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Screen Size: <%= @computer_monitor.screen_size %></li>
+    <li>Resolution: <%= @computer_monitor.refresh_rate %></li>
+    <li>Response Time: <%= @computer_monitor.response_time%></li>
+    <li>Panel Type: <%= @computer_monitor.panel_type %></li>
+    <li>Aspect Ratio: <%= @computer_monitor.aspect_ratio %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@computer_monitor.category_id) %></li>
+  </ul>
+</div>

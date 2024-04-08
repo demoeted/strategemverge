@@ -1,9 +1,21 @@
-<div>
-  <% @casefans.each do |c| %>
-    <div>
-      <p><%= c.name %></p>
-      <p><%= c.price %></p>
-    </div>
-  <% end %>
-  <%= paginate @casefans %>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @casefans.each_with_index do |casefan, index| %>
+        <% if index % 5 == 0 %>
+            <section class="columns">
+                <%= render partial: "layouts/product",
+                            object: casefan %>
+        <% else %>
+                <%= render partial: "layouts/product",
+                            object: casefan %>
+        <% end %>
+        <% if index % 5 == 4 %>
+            </section>
+        <% end %>
+    <% end %>
+    <%= paginate @casefans %>
+  </main>
 </div>

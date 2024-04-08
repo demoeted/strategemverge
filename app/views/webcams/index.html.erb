@@ -1,2 +1,21 @@
-<h1>Webcams#index</h1>
-<p>Find me in app/views/webcams/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @webcams.each_with_index do |webcam, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: webcam %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: webcam %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @webcams %>
+  </main>
+</div>

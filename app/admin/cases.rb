@@ -5,8 +5,9 @@ ActiveAdmin.register Case do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :type, :color, :psu, :side_panel
+   permit_params :name, :price, :casetype, :color, :psu, :side_panel, :category_id, :image
 
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -21,10 +22,14 @@ ActiveAdmin.register Case do
     f.inputs do
       f.input :name
       f.input :price
-      f.input :type
+      f.input :casetype
       f.input :color
       f.input :psu
       f.input :side_panel
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
     end
 
     f.actions

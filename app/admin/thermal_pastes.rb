@@ -5,7 +5,9 @@ ActiveAdmin.register ThermalPaste do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :amount
+   permit_params :name, :price, :amount, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -21,6 +23,12 @@ ActiveAdmin.register ThermalPaste do
       f.input :name
       f.input :price
       f.input :amount
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
+
+
     end
 
     f.actions

@@ -5,8 +5,9 @@ ActiveAdmin.register ComputerMonitor do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio
+   permit_params :name, :price, :screen_size, :resolution, :refresh_rate, :response_time, :panel_type, :aspect_ratio, :category_id, :image
 
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -27,6 +28,9 @@ ActiveAdmin.register ComputerMonitor do
       f.input :response_time
       f.input :panel_type
       f.input :aspect_ratio
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
     end
 
     f.actions

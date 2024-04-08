@@ -1,0 +1,21 @@
+<div class="container is-max-desktop">
+  <% if @videocard.image.present? %>
+    <div class="card-image">
+      <figure>
+        <%= image_tag @videocard.image, size: "200x200"%>
+      </figure>
+    </div>
+  <% end %>
+  <h1>Name: <%= @videocard.name %></h1>
+  <h2>Price: $<%= @videocard.price %></h2>
+  <h3>Specifications:</h3>
+  <ul>
+    <li>Chipset: <%= @videocard.chipset %></li>
+    <li>Memory: <%= @videocard.memory %> GB </li>
+    <li>Core Clock: <%= @videocard.core_clock %> GHz </li>
+    <li>Boost Clock: <%= @videocard.boost_clock %> GHz </li>
+    <li>Color: <%= @videocard.color %></li>
+    <li>Length: <%= @videocard.length %> cm</li>
+    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@videocard.category_id) %></li>
+  </ul>
+</div>

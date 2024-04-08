@@ -5,7 +5,9 @@ ActiveAdmin.register Webcam do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :resolutions, :connection, :focus_type, :os, :fov
+   permit_params :name, :price, :resolutions, :connection, :focus_type, :os, :fov, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
   #
   # or
   #
@@ -25,9 +27,14 @@ ActiveAdmin.register Webcam do
       f.input :focus_type
       f.input :os
       f.input :fov
+      f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
+
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
+
+
     end
 
     f.actions
   end
-  
+
 end

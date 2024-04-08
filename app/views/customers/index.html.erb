@@ -1,2 +1,18 @@
-<h1>Customers#index</h1>
-<p>Find me in app/views/customers/index.html.erb</p>
+<div class="is-flex">
+  <main class="box" >
+    <% @customers.each_with_index do |customer, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: customer %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: customer %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @customers %>
+  </main>
+</div>

@@ -1,2 +1,21 @@
-<h1>Rams#index</h1>
-<p>Find me in app/views/rams/index.html.erb</p>
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <main class="box" >
+    <% @rams.each_with_index do |ram, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: ram %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: ram %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @rams %>
+  </main>
+</div>
