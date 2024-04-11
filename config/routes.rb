@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   
   get "about_us", to: "about_u#index"
   get "contact_us", to: "contact_u#index"
+  get "monitors", to: "computer_monitor#index"
   get "memory", to: "rams#index"
+  get "power_supplies", to: "powersupplies#index"
+  get "video_cards", to: "videocards#index"
 end
 
