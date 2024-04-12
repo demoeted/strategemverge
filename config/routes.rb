@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/index'
 
   resources :about_u, only: [:index]
   resources :case_fans, only: [:index, :show]
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "products#index"
-  
+
   get "about_us", to: "about_u#index"
   get "contact_us", to: "contact_u#index"
   get "monitors", to: "computer_monitor#index"

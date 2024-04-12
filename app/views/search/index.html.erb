@@ -1,0 +1,31 @@
+<div class="is-flex">
+  <%= render partial: "layouts/sidenav",
+              object: @categories %>
+
+  <% if params[:keywords].present? %>
+    <p>
+      Found <%=pluralize(@results.total_count, "Result")%> for: <%= params[:keywords]%>
+    </p>
+  <% else %>
+    <p>
+      Found <%=pluralize(@results.total_count, "Result")%> for: <%= params[:category].split.map(&:capitalize).join(' ') %>
+    </p>
+  <% end %>
+
+  <main class="box" >
+    <% @results.each_with_index do |result, index| %>
+      <% if index % 5 == 0 %>
+          <section class="columns">
+              <%= render partial: "layouts/product",
+                          object: result %>
+      <% else %>
+              <%= render partial: "layouts/product",
+                          object: result %>
+      <% end %>
+      <% if index % 5 == 4 %>
+          </section>
+      <% end %>
+    <% end %>
+    <%= paginate @results %>
+  </main>
+</div>
