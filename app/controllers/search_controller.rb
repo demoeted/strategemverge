@@ -32,6 +32,7 @@ class SearchController < ApplicationController
       when 'Webcams'
         @results = Webcam.where("name LIKE ?", wildcard_search).page(params[:page]).per(25)
     end
+
     @categories = Category.all
 
   end

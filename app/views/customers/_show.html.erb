@@ -6,4 +6,7 @@
     <li>Phone Number: <%= @customer.phone_number %></li>
     <li>Address: <%= @customer.address %></li>
   </ul>
+  <%= form_with(model: @customer) do |form| %>
+    <%= form.submit "Log Out"%>
+  <% end %>
 </div>
