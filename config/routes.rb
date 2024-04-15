@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations/registrations' }
   get 'search/index'
 
   resources :about_u, only: [:index]

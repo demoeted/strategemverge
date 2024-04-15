@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_15_002110) do
   create_table "about_us", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -88,13 +88,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
   create_table "cases", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "type"
+    t.string "casetype"
     t.string "color"
     t.string "psu"
     t.string "side_panel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "casetype"
     t.integer "category_id", null: false
     t.index ["category_id"], name: "index_cases_on_category_id"
   end
@@ -149,8 +148,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id", null: false
-    t.index ["category_id"], name: "index_customers_on_category_id"
   end
 
   create_table "keyboards", force: :cascade do |t|
@@ -233,17 +230,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
   create_table "powersupplies", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "type"
-    t.string "efficienty"
+    t.string "powersupplytype"
+    t.string "efficiency"
     t.integer "wattage"
     t.string "modular"
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "powersupplytype"
-    t.string "efficiency"
     t.integer "category_id", null: false
     t.index ["category_id"], name: "index_powersupplies_on_category_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "province"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rams", force: :cascade do |t|
@@ -283,6 +284,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
     t.index ["category_id"], name: "index_thermal_pastes_on_category_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "street_address"
+    t.string "city"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   create_table "videocards", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -318,7 +337,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
   add_foreign_key "cases", "categories"
   add_foreign_key "computer_monitors", "categories"
   add_foreign_key "cpus", "categories"
-  add_foreign_key "customers", "categories"
   add_foreign_key "keyboards", "categories"
   add_foreign_key "mice", "categories"
   add_foreign_key "motherboards", "categories"
@@ -336,6 +354,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_161407) do
   add_foreign_key "rams", "categories"
   add_foreign_key "speakers", "categories"
   add_foreign_key "thermal_pastes", "categories"
+  add_foreign_key "users", "provinces"
   add_foreign_key "videocards", "categories"
   add_foreign_key "webcams", "categories"
 end
