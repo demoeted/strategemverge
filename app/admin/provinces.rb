@@ -24,4 +24,14 @@ ActiveAdmin.register Province do
     f.actions
   end
 
+  controller do
+    def create
+      super do |format|
+        if resource.valid?
+          # Call PostService after successful creation
+          PostService.new(resource, url_for(resource)).call
+        end
+      end
+    end
+  end
 end

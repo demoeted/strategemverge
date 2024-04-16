@@ -28,4 +28,6 @@ ActiveAdmin.register Customer do
 
     f.actions
   end
+
+
 end
