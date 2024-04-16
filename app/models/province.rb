@@ -4,7 +4,7 @@ class Province < ApplicationRecord
   validates :province, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "province", "updated_at"]
+    ["created_at", "province", "updated_at", "user_id_eq"]
   end
 
   def self.ransackable_associations(auth_object = nil)
