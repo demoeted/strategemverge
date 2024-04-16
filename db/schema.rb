@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_15_002110) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_16_181047) do
   create_table "about_us", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -226,8 +226,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_002110) do
     t.date "date_purchased"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id", null: false
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "powersupplies", force: :cascade do |t|
@@ -355,7 +355,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_002110) do
   add_foreign_key "orderproducts", "thermal_pastes", column: "product_id"
   add_foreign_key "orderproducts", "videocards", column: "product_id"
   add_foreign_key "orderproducts", "webcams", column: "product_id"
-  add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "users"
   add_foreign_key "powersupplies", "categories"
   add_foreign_key "rams", "categories"
   add_foreign_key "speakers", "categories"

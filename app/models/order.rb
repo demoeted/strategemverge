@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    belongs_to :customer, optional: true
+    belongs_to :user, optional: true
     has_many :orderproduct
 
    validates :date_purchased, presence: true
@@ -12,11 +12,11 @@ class Order < ApplicationRecord
     end
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "id_value", "customer_id", "date_purchased", "updated_at"]
+        ["created_at", "id", "id_value", "user_id", "date_purchased", "updated_at"]
     end
 
     def self.ransackable_associations(auth_object = nil)
-        ["orderproduct", "customer"]
+        ["orderproduct", "user"]
     end
 end
 

@@ -29,12 +29,25 @@ ActiveAdmin.register Webcam do
       f.input :fov
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
 
-      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
-
+      if f.object.image.attached?
+        f.input :image, as: :file, hint: image_tag(f.object.image, size: "200x200")
+      else
+        f.input :image, as: :file, hint: "No image uploaded yet"
+      end
 
     end
 
     f.actions
   end
 
+  controller do
+    def create
+      super do |format|
+        if resource.valid?
+          # Call PostService after successful creation
+          PostService.new(resource, url_for(resource)).call
+        end
+      end
+    end
+  end
 end

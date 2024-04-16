@@ -79,4 +79,4 @@ gem 'pry-nav'
 gem 'activeadmin_quill_editor'
 gem 'kaminari'
 gem "aws-sdk-s3", require: false
-
+gem 'discordrb'

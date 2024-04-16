@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :first_name, :last_name, :street_address, :city, :province_id, :role
+  permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :first_name, :last_name, :street_address, :city, :province, :role
   #
   # or
   #
@@ -25,7 +25,7 @@ ActiveAdmin.register User do
       f.input :password_confirmation, as: :string
       f.input :street_address
       f.input :city
-      f.input :province_id, as: :select, collection: Province.pluck(:province, :id)
+      f.input :province, as: :select, collection: Province.pluck(:province, :id)
       f.input :role
 
 
@@ -36,4 +36,14 @@ ActiveAdmin.register User do
     f.actions
   end
 
+  controller do
+    def create
+      super do |format|
+        if resource.valid?
+          # Call PostService after successful creation
+          PostService.new(resource, url_for(resource)).call
+        end
+      end
+    end
+  end
 end
