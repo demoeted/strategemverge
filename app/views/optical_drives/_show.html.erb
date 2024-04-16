@@ -1,21 +1,23 @@
 <div class="container is-max-desktop">
-  <% if @optical_drive.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @products %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @optical_drive.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @optical_drive.name %></h1>
-  <h2>Price: $<%= @optical_drive.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>BD: <%= @optical_drive.bd %></li>
-    <lI>DVD: <%= @optical_drive.dvd %></li>
-    <li>CD: <%= @optical_drive.cd %></li>
-    <li>BD Write Speed: <%= @optical_drive.bd_write %></li>
-    <li>DVD Write Speed: <%= @optical_drive.dvd_write %></li>
-    <li>CD Write Speed: <%= @optical_drive.cd_write %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@optical_drive.category_id) %></li>
+    <li>BD: <%= @product.bd %></li>
+    <lI>DVD: <%= @product.dvd %></li>
+    <li>CD: <%= @product.cd %></li>
+    <li>BD Write Speed: <%= @product.bd_write %></li>
+    <li>DVD Write Speed: <%= @product.dvd_write %></li>
+    <li>CD Write Speed: <%= @product.cd_write %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

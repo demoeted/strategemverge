@@ -1,0 +1,26 @@
+<nav class="breadcrumb">
+    <ul>
+        <% if @products %>
+            <% if @categoryname %>
+                <li><%= link_to "Home", root_path%></li>
+                <li><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}", :class => "is-active" %></li>
+            <% else %>
+                <li><%= link_to "Home", root_path, :class => "is-active"%></li>
+            <% end %>
+        <% elsif @about_business %>
+            <li><%= link_to "About Us", about_us_path, :class => "is-active" %></li>
+        <% elsif @contact_business %>
+            <li><%= link_to "Contact Us", contact_us_path, :class => "is-active" %></li>
+        <% elsif @results%>
+            <li><%= link_to "Search", search_index_path, :class => "is-active" %></li>
+        <% else %>
+            <% if @product %>
+                    <li><%= link_to "Home", root_path%></li>
+                    <li><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
+                    <li><a class="is-active"><%= @product.name %></a></li>
+                <% else %>
+                    <li><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}", :class => "is-active" %></li>
+                <% end %>
+        <% end %>
+    </ul> 
+</nav>

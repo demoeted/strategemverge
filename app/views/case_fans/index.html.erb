@@ -13,7 +13,9 @@
   <p><%= @message %></p>
 
   <main class="box" >
-    <% @casefans.each_with_index do |casefan, index| %>
+    <%= render partial: "layouts/crumb",
+                   object: @products%>
+    <% @products.each_with_index do |casefan, index| %>
         <% if index % 5 == 0 %>
             <section class="columns">
                 <%= render partial: "layouts/product",
@@ -26,6 +28,6 @@
             </section>
         <% end %>
     <% end %>
-    <%= paginate @casefans %>
+    <%= paginate @products %>
   </main>
 </div>

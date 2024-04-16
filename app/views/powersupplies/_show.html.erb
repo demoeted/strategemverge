@@ -1,20 +1,22 @@
 <div class="container is-max-desktop">
-  <% if @powersupply.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @product %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @powersupply.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @powersupply.name %></h1>
-  <h2>Price: $<%= @powersupply.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Type: <%= @powersupply.powersupplytype%></li>
-    <li>Efficiency: <%= @powersupply.efficiency %></li>
-    <li>Wattage: <%= @powersupply.wattage %></li>
-    <li>Modular: <%= @powersupply.modular %></li>
-    <li>Colour: <%= @powersupply.color %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@powersupply.category_id) %></li>
+    <li>Type: <%= @product.powersupplytype%></li>
+    <li>Efficiency: <%= @product.efficiency %></li>
+    <li>Wattage: <%= @product.wattage %></li>
+    <li>Modular: <%= @product.modular %></li>
+    <li>Colour: <%= @product.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

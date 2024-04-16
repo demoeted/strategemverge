@@ -1,23 +1,24 @@
 class ComputerMonitorController < ApplicationController
   def index
-    @computer_monitors = ComputerMonitor.all.page(params[:page]).per(25)
+    @products = ComputerMonitor.all.page(params[:page]).per(25)
     filter = params[:filter]
     case filter
       when 'all'
-        @computer_monitors = ComputerMonitor.all.page(params[:page]).per(25)
+        @products = ComputerMonitor.all.page(params[:page]).per(25)
       when 'new'
-        @computer_monitors = ComputerMonitor.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
+        @products = ComputerMonitor.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
       when 'recently updated'
-        @computer_monitors = ComputerMonitor.where('updated_at >= ?', 3.days.ago)
+        @products = ComputerMonitor.where('updated_at >= ?', 3.days.ago)
                                         .where.not('created_at >= ?', 3.days.ago)
                                         .page(params[:page]).per(25)
     end
     @categories = Category.all
+    @categoryname = Category.where("name = 'Monitors'")
   end
 
   def show
-    @computer_monitor = ComputerMonitor.find(params[:id])
-    @categoryname = Category.where(id: @computer_monitor.category_id)
+    @product = ComputerMonitor.find(params[:id])
+    @categoryname = Category.where(id: @product.category_id)
                         .select("name")
   end
 end

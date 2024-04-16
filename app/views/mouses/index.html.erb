@@ -12,7 +12,9 @@
   <% end %>
 
   <main class="box" >
-    <% @mouses.each_with_index do |mouse, index| %>
+    <%= render partial: "layouts/crumb",
+                   object: @products %>
+    <% @products.each_with_index do |mouse, index| %>
       <% if index % 5 == 0 %>
           <section class="columns">
               <%= render partial: "layouts/product",
@@ -25,6 +27,6 @@
           </section>
       <% end %>
     <% end %>
-    <%= paginate @mouses %>
+    <%= paginate @products %>
   </main>
 </div>

@@ -1,23 +1,24 @@
 class CpusController < ApplicationController
   def index
-    @cpus = Cpu.all.page(params[:page]).per(25)
+    @products = Cpu.all.page(params[:page]).per(25)
     filter = params[:filter]
     case filter
       when 'all'
-        @cpus = Cpu.all.page(params[:page]).per(25)
+        @products = Cpu.all.page(params[:page]).per(25)
       when 'new'
-        @cpus = Cpu.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
+        @products = Cpu.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
       when 'recently updated'
-        @cpus = Cpu.where('updated_at >= ?', 3.days.ago)
+        @products = Cpu.where('updated_at >= ?', 3.days.ago)
                                         .where.not('created_at >= ?', 3.days.ago)
                                         .page(params[:page]).per(25)
     end
     @categories = Category.all
+    @categoryname = Category.where("name = 'CPUs'")
   end
 
   def show
-    @cpu = Cpu.find(params[:id])
-    @categoryname = Category.where(id: @cpu.category_id)
+    @product = Cpu.find(params[:id])
+    @categoryname = Category.where(id: @product.category_id)
                         .select("name")
   end
 end

@@ -1,19 +1,21 @@
 <div class="container is-max-desktop">
-  <% if @casefan.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @product %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @casefan.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @casefan.name %></h1>
-  <h2>Price: $<%= @casefan.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Size: <%= @casefan.size %> </li>
-    <li>Color: <%= @casefan.color %></li>
-    <li>RPM: <%= @casefan.rpm %></li>
-    <li>PWM: <%= @casefan.pwm %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@casefan.category_id) %></li>
+    <li>Size: <%= @product.size %> </li>
+    <li>Color: <%= @product.color %></li>
+    <li>RPM: <%= @product.rpm %></li>
+    <li>PWM: <%= @product.pwm %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

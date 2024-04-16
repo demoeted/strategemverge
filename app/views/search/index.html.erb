@@ -13,6 +13,8 @@
   <% end %>
 
   <main class="box" >
+    <%= render partial: "layouts/crumb",
+                   object: @products %>
     <% @results.each_with_index do |result, index| %>
       <% if index % 5 == 0 %>
           <section class="columns">

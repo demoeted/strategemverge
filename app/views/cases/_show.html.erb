@@ -1,19 +1,21 @@
 <div class="container is-max-desktop">
-  <% if @case.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @product %>  
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @case.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @case.name %></h1>
-  <h2>Price: $<%= @case.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Case Type: <%= @case.casetype %></li>
-    <li>Color: <%= @case.color %></li>
-    <li>PSU: <%= @case.psu %></li>
-    <li>Side Panel <%= @case.side_panel %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@case.category_id) %></li>
+    <li>Case Type: <%= @product.casetype %></li>
+    <li>Color: <%= @product.color %></li>
+    <li>PSU: <%= @product.psu %></li>
+    <li>Side Panel <%= @product.side_panel %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

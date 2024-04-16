@@ -1,25 +1,27 @@
 <div class="container is-max-desktop">
-  <% if @keyboard.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @product %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @keyboard.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @keyboard.name %></h1>
-  <h2>Price: $<%= @keyboard.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Style: <%= @keyboard.style %></li>
-    <li>Switches: <%= @keyboard.switches %></li>
-    <li>Backlit Colour: <%= @keyboard.backlit_color %></li>
-    <% if(@keyboard.tenkeyless == true ) %>
+    <li>Style: <%= @product.style %></li>
+    <li>Switches: <%= @product.switches %></li>
+    <li>Backlit Colour: <%= @product.backlit_color %></li>
+    <% if(@product.tenkeyless == true ) %>
       <li>Ten-Keyless: Yes</li>
-    <% elsif(@keyboard.tenkeyless == false) %>
+    <% elsif(@product.tenkeyless == false) %>
       <li>Ten-Keyless: No</li>
     <% end %>
-    <li>Connection Type: <%= @keyboard.connection_type %></li>
-    <li>Colour: <%= @keyboard.color %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@keyboard.category_id) %></li>
+    <li>Connection Type: <%= @product.connection_type %></li>
+    <li>Colour: <%= @product.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

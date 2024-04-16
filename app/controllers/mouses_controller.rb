@@ -1,23 +1,24 @@
 class MousesController < ApplicationController
   def index
-    @mouses = Mouse.all.page(params[:page]).per(25)
+    @products = Mouse.all.page(params[:page]).per(25)
     filter = params[:filter]
     case filter
       when 'all'
-        @mouses = Mouse.all.page(params[:page]).per(25)
+        @products = Mouse.all.page(params[:page]).per(25)
       when 'new'
-        @mouses = Mouse.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
+        @products = Mouse.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
       when 'recently updated'
-        @mouses = Mouse.where('updated_at >= ?', 3.days.ago)
+        @products = Mouse.where('updated_at >= ?', 3.days.ago)
                                         .where.not('created_at >= ?', 3.days.ago)
                                         .page(params[:page]).per(25)
     end
     @categories = Category.all
+    @categoryname = Category.where("name = 'Mouses'")
   end
 
   def show
-    @mouse = Mouse.find(params[:id])
-    @categoryname = Category.where(id: @mouse.category_id)
+    @product = Mouse.find(params[:id])
+    @categoryname = Category.where(id: @product.category_id)
                         .select("name")
   end
 end

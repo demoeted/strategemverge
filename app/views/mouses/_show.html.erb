@@ -1,20 +1,22 @@
 <div class="container is-max-desktop">
-  <% if @mouse.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @products %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @mouse.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @mouse.name %></h1>
-  <h2>Price: $<%= @mouse.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Tracking Method: <%= @mouse.tracking_method %></li>
-    <li>Connection Type: <%= @mouse.connection_type %></li>
-    <li>Max DPI: <%= @mouse.max_dpi %></li>
-    <li>Hand Orientation: <%= @mouse.hand_orientation %></li>
-    <li>Colour: <%= @mouse.color %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@mouse.category_id) %></li>
+    <li>Tracking Method: <%= @product.tracking_method %></li>
+    <li>Connection Type: <%= @product.connection_type %></li>
+    <li>Max DPI: <%= @product.max_dpi %></li>
+    <li>Hand Orientation: <%= @product.hand_orientation %></li>
+    <li>Colour: <%= @product.color %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

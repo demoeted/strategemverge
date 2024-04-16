@@ -1,23 +1,24 @@
 class PowersuppliesController < ApplicationController
   def index
-    @powersupplies = Powersupply.all.page(params[:page]).per(25)
+    @products = Powersupply.all.page(params[:page]).per(25)
     filter = params[:filter]
     case filter
       when 'all'
-        @powersupplies = Powersupply.all.page(params[:page]).per(25)
+        @products = Powersupply.all.page(params[:page]).per(25)
       when 'new'
-        @powersupplies = Powersupply.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
+        @products = Powersupply.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
       when 'recently updated'
-        @powersupplies = Powersupply.where('updated_at >= ?', 3.days.ago)
+        @products = Powersupply.where('updated_at >= ?', 3.days.ago)
                                         .where.not('created_at >= ?', 3.days.ago)
                                         .page(params[:page]).per(25)
     end
     @categories = Category.all
+    @categoryname = Category.where("name = 'Power Supplies'")
   end
 
   def show
-    @powersupply = Powersupply.find(params[:id])
-    @categoryname = Category.where(id: @powersupply.category_id)
+    @product = Powersupply.find(params[:id])
+    @categoryname = Category.where(id: @product.category_id)
                         .select("name")
   end
 end

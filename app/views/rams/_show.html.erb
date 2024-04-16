@@ -1,20 +1,22 @@
 <div class="container is-max-desktop">
-  <% if @ram.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @product %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @ram.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @ram.name %></h1>
-  <h2>Price: $<%= @ram.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Speed: <%= @ram.speed %></li>
-    <li>Price per GB: <%= @ram.price_per_gb %></li>
-    <li>Color: <%= @ram.color %></li>
-    <li>First Word Latency: <%= @ram.first_word_latency %></li>
-    <li>CAS Latency: <%= @ram.cas_latency %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@ram.category_id) %></li>
+    <li>Speed: <%= @product.speed %></li>
+    <li>Price per GB: <%= @product.price_per_gb %></li>
+    <li>Color: <%= @product.color %></li>
+    <li>First Word Latency: <%= @product.first_word_latency %></li>
+    <li>CAS Latency: <%= @product.cas_latency %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>

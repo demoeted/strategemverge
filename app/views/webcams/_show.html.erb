@@ -1,20 +1,22 @@
 <div class="container is-max-desktop">
-  <% if @webcam.image.present? %>
+  <%= render partial: "layouts/crumb",
+                   object: @product %>
+  <% if @product.image.present? %>
     <div class="card-image">
       <figure>
-        <%= image_tag @webcam.image, size: "200x200"%>
+        <%= image_tag @product.image, size: "200x200"%>
       </figure>
     </div>
   <% end %>
-  <h1>Name: <%= @webcam.name %></h1>
-  <h2>Price: $<%= @webcam.price %></h2>
+  <h1>Name: <%= @product.name %></h1>
+  <h2>Price: $<%= @product.price %></h2>
   <h3>Specifications:</h3>
   <ul>
-    <li>Resolutions: <%= @webcam.resolutions %></li>
-    <li>Connection: <%= @webcam.connection %></li>
-    <li>Focus Type: <%= @webcam.focus_type %></li>
-    <li>OS: <%= @webcam.os %> </li>
-    <li>FOV: <%= @webcam.fov %></li>
-    <li>Category ID: <%= link_to @categoryname.first.name, category_path(@webcam.category_id) %></li>
+    <li>Resolutions: <%= @product.resolutions %></li>
+    <li>Connection: <%= @product.connection %></li>
+    <li>Focus Type: <%= @product.focus_type %></li>
+    <li>OS: <%= @product.os %> </li>
+    <li>FOV: <%= @product.fov %></li>
+    <li>Category ID: <%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
   </ul>
 </div>
