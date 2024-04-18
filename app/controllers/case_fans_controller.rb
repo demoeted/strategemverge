@@ -1,8 +1,8 @@
 class CaseFansController < ApplicationController
   def index
     @products = CaseFan.all.page(params[:page]).per(25)
-    @message = ""
     filter = params[:filter]
+    @message = ""
     case filter
       when 'all'
         @products = CaseFan.all.page(params[:page]).per(25)
