@@ -23,7 +23,7 @@ ActiveAdmin.register Case do
       f.input :name
       f.input :price
       f.input :casetype
-      f.input :color
+      f.input :color, as: :text
       f.input :psu
       f.input :side_panel
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)

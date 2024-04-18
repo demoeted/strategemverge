@@ -26,7 +26,7 @@ ActiveAdmin.register Powersupply do
       f.input :efficiency
       f.input :wattage
       f.input :modular
-      f.input :color
+      f.input :color, as: :text
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
 
       if f.object.image.attached?

@@ -26,7 +26,7 @@ ActiveAdmin.register Videocard do
       f.input :memory
       f.input :core_clock
       f.input :boost_clock
-      f.input :color
+      f.input :color, as: :text
       f.input :length
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
 

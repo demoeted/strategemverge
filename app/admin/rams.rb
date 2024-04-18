@@ -24,7 +24,7 @@ ActiveAdmin.register Ram do
       f.input :price
       f.input :speed
       f.input :price_per_gb
-      f.input :color
+      f.input :color, as: :text
       f.input :first_word_latency
       f.input :cas_latency
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)

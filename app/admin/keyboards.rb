@@ -28,7 +28,7 @@ ActiveAdmin.register Keyboard do
       f.input :backlit_color
       f.input :tenkeyless
       f.input :connection_type
-      f.input :color
+      f.input :color, as: :text
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
 
       if f.object.image.attached?

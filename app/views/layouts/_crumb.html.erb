@@ -3,23 +3,23 @@
         <% if @products %>
             <% if @categoryname %>
                 <li><%= link_to "Home", root_path%></li>
-                <li><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}", :class => "is-active" %></li>
+                <li class="is-active"><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
             <% else %>
-                <li><%= link_to "Home", root_path, :class => "is-active"%></li>
+                <li class="is-active"><%= link_to "Home", root_path %></li>
             <% end %>
         <% elsif @about_business %>
-            <li><%= link_to "About Us", about_us_path, :class => "is-active" %></li>
+            <li class="is-active"><%= link_to "About Us", about_us_path %></li>
         <% elsif @contact_business %>
-            <li><%= link_to "Contact Us", contact_us_path, :class => "is-active" %></li>
+            <li class="is-active"><%= link_to "Contact Us", contact_us_path %></li>
         <% elsif @results%>
-            <li><%= link_to "Search", search_index_path, :class => "is-active" %></li>
+            <li class="is-active"><%= link_to "Search", search_index_path %></li>
         <% else %>
             <% if @product %>
                     <li><%= link_to "Home", root_path%></li>
                     <li><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
-                    <li><a class="is-active"><%= @product.name %></a></li>
+                    <li class="is-active"><%= link_to @product.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}/#{@product.id}"%></li>
                 <% else %>
-                    <li><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}", :class => "is-active" %></li>
+                    <li class="is-active"><%= link_to @categoryname.first.name, "/#{@categoryname.first.name.downcase.tr(" ", "_")}" %></li>
                 <% end %>
         <% end %>
     </ul> 

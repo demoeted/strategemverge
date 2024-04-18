@@ -23,7 +23,7 @@ ActiveAdmin.register CaseFan do
       f.input :name
       f.input :price
       f.input :size
-      f.input :color
+      f.input :color, as: :text
       f.input :rpm
       f.input :pwm
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)

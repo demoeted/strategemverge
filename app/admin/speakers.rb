@@ -25,7 +25,7 @@ ActiveAdmin.register Speaker do
       f.input :configuration
       f.input :wattage
       f.input :frequency
-      f.input :color
+      f.input :color, as: :text
       f.input :category_id, as: :select, collection: Category.pluck(:name, :id)
 
       if f.object.image.attached?
