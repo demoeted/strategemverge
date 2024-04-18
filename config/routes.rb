@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cart/create'
+  get 'cart/destroy'
   devise_for :users, controllers: { registrations: 'registrations/registrations' }
   get 'search/index'
 
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   resources :thermal_pastes, only: [:index, :show]
   resources :videocards, only: [:index, :show]
   resources :webcams, only: [:index, :show]
+  resources :cart, only: [:create, :destroy]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

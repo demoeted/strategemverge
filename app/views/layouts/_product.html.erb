@@ -9,7 +9,15 @@
                 </div>
             <% end %>
             <p>Name: <%= link_to product.name, product %></p>
-            <p>Price: <%= product.price %></p>
+            <p>Price: $<%= product.price %></p>
+            <hr class="divider"/>
+            <%= form_with url: cart_index_path, class: "add-product", method: :post do %>
+                <%= hidden_field_tag(:category, product.category)%>
+                <%= hidden_field_tag(:id, product.id)%>
+                <%= label_tag('quantity')%>
+                <%= number_field_tag(:quantity, 1, in:1..5, step: 1)%>
+                <%= button_tag 'Add to Cart' %>
+            <% end %>
         </div>
     </div>
 </div>

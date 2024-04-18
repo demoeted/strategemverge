@@ -2,6 +2,7 @@
   <%= render partial: "layouts/sidenav",
               object: @categories %>
 
+  <main class="box" >
     <%= form_with(url: computer_monitor_index_path, method: :get, local: true, class: "") do |form| %>
         <%= form.select :filter, options_for_select([
         ['All', 'all'],
@@ -10,8 +11,8 @@
         ]), {}, class: ""%>
         <%= form.submit 'Search', class: "" %>
     <% end %>
-
-  <main class="box" >
+    <p><%= @message %></p>
+    
       <%= render partial: "layouts/crumb",
                    object: @products %>
       <% @products.each_with_index do |computer_monitor, index| %>

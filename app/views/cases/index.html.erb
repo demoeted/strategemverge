@@ -2,16 +2,17 @@
     <%= render partial: "layouts/sidenav",
                object: @categories %>
 
-    <%= form_with(url: cases_path, method: :get, local: true, class: "") do |form| %>
-        <%= form.select :filter, options_for_select([
-        ['All', 'all'],
-        ['New', 'new'],
-        ['Recently Updated', 'recently updated']
-        ]), {}, class: ""%>
-        <%= form.submit 'Search', class: "" %>
-    <% end %>
-
     <main class="box" >
+        <%= form_with(url: cases_path, method: :get, local: true, class: "") do |form| %>
+            <%= form.select :filter, options_for_select([
+            ['All', 'all'],
+            ['New', 'new'],
+            ['Recently Updated', 'recently updated']
+            ]), {}, class: ""%>
+            <%= form.submit 'Search', class: "" %>
+        <% end %>
+        <p><%= @message %></p>
+        
         <%= render partial: "layouts/crumb",
                    object: @products%>
         <% @products.each_with_index do |singlecase, index| %>
