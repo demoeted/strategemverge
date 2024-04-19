@@ -41,11 +41,11 @@ ActiveAdmin.register OpticalDrive do
     f.actions
   end
 
+  # Calls the PostService class to post a message with the PC parts name and show page url once the PC part is created.
   controller do
     def create
       super do |format|
         if resource.valid?
-          # Call PostService after successful creation
           PostService.new(resource, url_for(resource)).call
         end
       end

@@ -6,7 +6,7 @@ class PowersuppliesController < ApplicationController
     case filter
       when 'all'
         @products = Powersupply.all.page(params[:page]).per(25)
-        @message = ""
+        @message = "Filtered: New"
       when 'new'
         @products = Powersupply.where('created_at >= ?', 3.days.ago).page(params[:page]).per(25)
         @message = "Filtered: New"

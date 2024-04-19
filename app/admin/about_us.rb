@@ -29,7 +29,7 @@ ActiveAdmin.register AboutU do
     def create
       super do |format|
         if resource.valid?
-          # Call PostService after successful creation
+
           PostService.new(resource, url_for(resource)).call
         end
       end
