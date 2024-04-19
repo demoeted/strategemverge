@@ -12,16 +12,9 @@
   </head>
 
   <body>
+    <%= render partial: 'layouts/nav' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <% if session[:cart].present? %>
-      <% session[:cart].each do |p| %>
-        <p><%= p %></p>
-      <% end %>
-    <% end %>
-
-    <%= render partial: 'layouts/nav' %>
     <%= yield %>
 
     <script>

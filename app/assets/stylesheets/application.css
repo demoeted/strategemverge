@@ -38,3 +38,7 @@ form.add-product {
   display: flex;
   align-items: center;
 } 
+
+nav.navbar #navMenu .navbar-end #cart:hover{
+  display:block;
+}

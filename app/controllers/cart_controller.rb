@@ -4,6 +4,7 @@ class CartController < ApplicationController
     id = params[:id].to_i
     category = params[:category]
     quantity = params[:quantity].to_i
+    name = params[:name].to_s
 
     case category
     when "Case Fans"
@@ -44,7 +45,7 @@ class CartController < ApplicationController
     end
 
     if is_clean
-      session[:cart] << {:category=> category, :id=>id, :quantity=>quantity} 
+      session[:cart] << {:category=> category, :id=>id, :quantity=>quantity, :name=>name} 
       flash[:notice] = " ➕ Added #{quantity} #{product.name} to cart."
     end
 
@@ -52,8 +53,40 @@ class CartController < ApplicationController
   end
 
   def destroy
-    id = params[:id].to_i
+    product_id = params[:product_id].to_i
     category = params[:category].to_s
+
+    case category
+    when "Case Fans"
+      product = CaseFan.find(product_id)
+    when "Cases"
+      product = Case.find(product_id)
+    when "Monitors"
+      product = ComputerMonitor.find(product_id)
+    when "CPUs"
+      product = Cpu.find(product_id)
+    when "Keyboards"
+      product = Keyboard.find(product_id)
+    when "Mouses"
+      product = Mouse.find(product_id)
+    when "Optical Drives"
+      product = OpticalDrive.find(product_id)
+    when "Power Supplies"
+      product = Powersupply.find(product_id)
+    when "Memory"
+      product = Ram.find(product_id)
+    when "Speakers"
+      product = Speaker.find(product_id)
+    when "Thermal Pastes"
+      product = ThermalPaste.find(product_id)
+    when "Video Cards"
+      product = Videocard.find(product_id)
+    when "Webcams"
+      product = Webcam.find(product_id)
+    end
+
+    session[:cart].delete_if {|product| product["category"] == category && product["id"] == product_id}
+    flash[:notice] = "➖ #{product.name} has been removed from cart."
 
     redirect_to root_path
   end
