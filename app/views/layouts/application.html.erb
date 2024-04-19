@@ -15,7 +15,11 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= debug session[:cart] %>
+    <% if session[:cart].present? %>
+      <% session[:cart].each do |p| %>
+        <p><%= p %></p>
+      <% end %>
+    <% end %>
 
     <%= render partial: 'layouts/nav' %>
     <%= yield %>

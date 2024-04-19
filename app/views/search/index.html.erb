@@ -1,18 +1,17 @@
 <div class="is-flex">
   <%= render partial: "layouts/sidenav",
               object: @categories %>
-
-  <% if params[:keywords].present? %>
-    <p>
-      Found <%=pluralize(@results.total_count, "Result")%> for: <%= params[:keywords]%>
-    </p>
-  <% else %>
-    <p>
-      Found <%=pluralize(@results.total_count, "Result")%> for: <%= params[:category].split.map(&:capitalize).join(' ') %>
-    </p>
-  <% end %>
-
+              
   <main class="box" >
+    <% if params[:keywords].present? %>
+      <p>
+        Found <%=pluralize(@results.total_count, "Result")%> for: <%= params[:keywords]%>
+      </p>
+    <% else %>
+      <p>
+        Found <%=pluralize(@results.total_count, "Result")%> for: <%= params[:category].split.map(&:capitalize).join(' ') %>
+      </p>
+    <% end %>
     <%= render partial: "layouts/crumb",
                    object: @products %>
     <% @results.each_with_index do |result, index| %>

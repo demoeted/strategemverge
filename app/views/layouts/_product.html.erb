@@ -9,8 +9,8 @@
                 </div>
             <% end %>
             <p>Name: <%= link_to product.name, product %></p>
-            <p>Price: $<%= product.price %></p>
-            <hr class="divider"/>
+            <p>Price: $<%= product.price %></p> 
+            <hr class="divider" >
             <%= form_with url: cart_index_path, class: "add-product", method: :post do %>
                 <%= hidden_field_tag(:category, product.category.name)%>
                 <%= hidden_field_tag(:id, product.id)%>

@@ -13,6 +13,7 @@
             <li class="is-active"><%= link_to "Contact Us", contact_us_path %></li>
         <% elsif @results%>
             <li class="is-active"><%= link_to "Search", search_index_path %></li>
+            <li class="is-active"><%= params[:keywords]%></li>
         <% else %>
             <% if @product %>
                     <li><%= link_to "Home", root_path%></li>
